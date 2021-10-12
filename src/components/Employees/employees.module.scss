@@ -1,0 +1,43 @@
+.team {
+  background-color: #CBCAC9;
+  border-top: 1px solid #000;
+
+  button {
+    color: #000;
+    background-color: rgb(1, 1, 1, 0.2);
+    border: 2px solid #000;
+    border-radius: .4em;
+    display: block;
+    font-size: 1em;
+    font-weight: 200;
+    letter-spacing: .4em;
+    margin: 6em auto 2em;
+    padding: .8em;
+    text-transform: uppercase;
+    transition: background-color 1s linear, color 1s linear;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .8);
+      color: #fff;
+    }
+  }
+
+  h2 {
+    background-color: #212525;
+    color: #fff;
+    padding: 2em 6em 1em;
+    text-align: right;
+  }
+
+  p {
+    padding: 0 2em 2em;
+  }
+
+  .wrapper {
+    background-color: #212525;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+  }
+
+}

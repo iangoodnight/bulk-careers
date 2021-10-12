@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+} 
+
+body {
+  color: #464646;
+  font-family: "Segoe UI", Roboto, Verdana, "Helvetica Neue", sans-serif;
+  font-size: 100%;
+  line-height: 1.4283;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+  letter-spacing: .2em;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+section {
+  font-size: 1.4em;
+  padding-bottom: 4em;
+  width: 100%;
+}
+
+

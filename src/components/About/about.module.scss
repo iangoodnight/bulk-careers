@@ -1,0 +1,45 @@
+.about {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.1));
+  -webkit-box-shadow: inset 0px -30px 50px 0px rgba(0,0,0,0.75);
+  box-shadow: inset 0px -30px 50px 0px rgba(0,0,0,0.75);
+  color: #232129;
+
+  div {
+    background-color: rgba(0,0,0,0.1);
+    border: 2px solid #fff;
+    border-radius: .6em;
+    box-shadow: inset 0px -20px 50px 20px rgba(0,0,0,0.5);
+    margin: 0 2em;
+
+    p {
+      padding: 0 2em 2em;
+    }
+
+    button {
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.2);
+      border: 2px solid #fff;
+      border-radius: .4em;
+      display: block;
+      font-size: 1em;
+      font-weight: 200;
+      letter-spacing: .4em;
+      margin: 6em auto 2em;
+      padding: .8em;
+      text-transform: uppercase;
+      transition: background-color 1s linear;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, .6);
+      }
+    }
+  }
+
+  h2 {
+    background-color: #000;
+    color: #fff;
+    padding: 2em 6em 1em;
+    text-align: right;
+  }
+
+}
