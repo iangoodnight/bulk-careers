@@ -17,6 +17,6 @@ collections:
         widget: hidden
         default: Job
       - { name: postDate, label: Date, widget: datetime }
-      - { name: active, label: Active, widget: boolean }
+      - { name: active, label: Active, widget: boolean, default: false }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
