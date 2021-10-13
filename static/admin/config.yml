@@ -15,7 +15,7 @@ collections:
       - name: templateKey
         label: "Template Key"
         widget: hidden
-        default: "job-post"
+        default: Job
       - { name: postDate, label: Date, widget: datetime }
       - { name: active, label: Active, widget: boolean }
       - { name: title, label: Title }

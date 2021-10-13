@@ -3,49 +3,17 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import Content, { HTMLContent } from '../components/Content';
-
-export const JobPostTemplate = ({
-  content,
-  contentComponent,
-  title,
-  helmet,
-}) => {
-  const PostContent = contentComponent || Content;
-
-  return (
-    <section>
-      { helmet || '' }
-      <div>
-        <h1>{title}</h1>
-        <PostContent content={content} />
-      </div>
-    </section>
-  );
-};
-
-JobPostTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  title: PropTypes.string,
-  helmet: PropTypes.object,
-};
+import Content from '../components/Content';
 
 const JobPost = ({ data }) => {
   const { markdownRemark: job } = data;
 
+  const { title } = job.frontmatter;
+
   return (
     <Layout>
-      <JobPostTemplate
-        content={job.html}
-        contentComponent={HTMLContent}
-        title={job.frontmatter.title}
-        helmet={
-          <Helmet titleTemplate="%s | Careers | Natural Essentials Inc">
-            <title>{`${job.frontmatter.title}`}</title>
-          </Helmet>
-        }
-      />
+      <h1>{title}</h1>
+      <Content content={job.html} />
     </Layout>
   );
 };
@@ -58,14 +26,14 @@ JobPost.propTypes = {
 
 export default JobPost;
 
-// export const pageQuery = graphql`
-//   query JobPostById($id: String!) {
-//     markdownRemark(id: { eq: $id }) {
-//       id
-//       html
-//       frontmatter {
-//         title
-//       }
-//     }
-//   }
-// `;
+export const pageQuery = graphql`
+  query JobPostById($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      id
+      html
+      frontmatter {
+        title
+      }
+    }
+  }
+`;
