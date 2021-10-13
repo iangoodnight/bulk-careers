@@ -58,14 +58,14 @@ JobPost.propTypes = {
 
 export default JobPost;
 
-export const pageQuery = graphql`
-  query JobPostById($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      id
-      html
-      frontmatter {
-        title
-      }
-    }
-  }
-`;
+// export const pageQuery = graphql`
+//   query JobPostById($id: String!) {
+//     markdownRemark(id: { eq: $id }) {
+//       id
+//       html
+//       frontmatter {
+//         title
+//       }
+//     }
+//   }
+// `;
