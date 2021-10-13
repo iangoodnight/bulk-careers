@@ -11,8 +11,11 @@ collections:
     label: Jobs
     folder: jobs
     create: true
+    slug:
+      encoding: "ascii"
+      clean_accents: true
     fields:
-      - { name: path, Label: Path }
+      - { name: templateKey, label: "Template Key", widget: hidden, default: "job-post" }
       - { name: postDate, label: Date, widget: datetime }
       - { name: active, label: Active, widget: boolean }
       - { name: title, label: Title }
