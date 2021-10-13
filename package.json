@@ -4,6 +4,10 @@
   "private": true,
   "description": "Bulk Careers",
   "author": "Ian Goodnight",
+  "engines": {
+    "node": "14.18.0",
+    "npm": "6.14.15"
+  },
   "keywords": [
     "gatsby"
   ],
