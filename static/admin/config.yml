@@ -14,5 +14,6 @@ collections:
     fields:
       - { name: path, Label: Path }
       - { name: postDate, label: Date, widget: datetime }
+      - { name: active, label: Active, widget: boolean }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
