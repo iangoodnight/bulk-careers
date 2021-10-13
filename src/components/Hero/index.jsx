@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { animateScroll as scroll, Link } from 'react-scroll';
+import { Link } from 'react-scroll';
 import { content, hero, overlay } from './hero.module.scss';
 
 const Hero = () => {

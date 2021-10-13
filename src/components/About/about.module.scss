@@ -1,23 +1,19 @@
 .about {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.1));
   -webkit-box-shadow: inset 0px -30px 50px 0px rgba(0,0,0,0.75);
   box-shadow: inset 0px -30px 50px 0px rgba(0,0,0,0.75);
   color: #232129;
 
   div {
-    background-color: rgba(0,0,0,0.1);
-    border: 2px solid #fff;
-    border-radius: .6em;
-    box-shadow: inset 0px -20px 50px 20px rgba(0,0,0,0.5);
-    margin: 0 2em;
+    margin: 0;
+    padding: 0 8em;
 
     p {
-      padding: 0 2em 2em;
+      padding: 0 2em 1em;
     }
 
     button {
       color: #fff;
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(0, 0, 0, 0.8);
       border: 2px solid #fff;
       border-radius: .4em;
       display: block;
@@ -27,10 +23,15 @@
       margin: 6em auto 2em;
       padding: .8em;
       text-transform: uppercase;
-      transition: background-color 1s linear;
+      transition:
+        background-color 1s linear,
+        color 1s linear,
+        border-color 1s linear;
 
       &:hover {
-        background-color: rgba(0, 0, 0, .6);
+        background-color: rgba(0, 0, 0, .1);
+        color: #000;
+        border-color: #000;
       }
     }
   }
@@ -42,4 +43,21 @@
     text-align: right;
   }
 
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 2em;
+    height: 60px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .wrapper2 {
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    margin: 0 auto 2em;
+    text-align: center;
+    width: 100%;
+  }
 }

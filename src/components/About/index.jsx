@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-scroll';
-import { about } from './about.module.scss';
+import { StaticImage } from 'gatsby-plugin-image';
+import { about, wrapper, wrapper2 } from './about.module.scss';
 
 const About = () => {
   return (
@@ -20,6 +21,16 @@ const About = () => {
           Ohio but also have an online presence that's growth is nothing short
           of amazing.
         </p>
+        <div className={wrapper}>
+          <StaticImage
+            alt="Bulk Apothecary"
+            height={60}
+            layout="constrained"
+            objectFit="contain"
+            placeholder="blurred"
+            src="../../images/bulk-logo.png"
+          />
+        </div>
         <p>
           Natural Essentials was founded in 1995 and has quickly grown to one of
           the nation's premier contract-filling companies. Because of our strong
@@ -28,6 +39,17 @@ const About = () => {
           history. Today, Natural Essentials employs nearly 275 employees and
           manufactures products found in almost every retailer in the USA.
         </p>
+        <div className={wrapper2}>
+          <StaticImage
+            alt="Natural Essentials Inc"
+            height={60}
+            layout="constrained"
+            objectFit="contain"
+            placeholder="blurred"
+            src="../../images/natural-logo.png"
+          />
+        </div>
+
         <button>
           <Link duration={700} smooth={true} to="employees">
             Meet our team
