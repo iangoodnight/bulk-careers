@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content from '../components/Content';
+import { posting } from './job.module.scss';
 
 const JobPost = ({ data }) => {
   const { markdownRemark: job } = data;
@@ -12,8 +13,10 @@ const JobPost = ({ data }) => {
 
   return (
     <Layout>
-      <h1>{title}</h1>
-      <Content content={job.html} />
+      <div className={posting}>
+        <h1>{title}</h1>
+        <Content content={job.html} />
+      </div>
     </Layout>
   );
 };

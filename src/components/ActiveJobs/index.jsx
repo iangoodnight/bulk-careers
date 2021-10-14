@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 
@@ -8,13 +9,17 @@ const JobList = ({ data }) => {
   const { edges: jobs } = foundJobs;
 
   return (
-    <section>
-      <ul>
-        { jobs.map((job) => (
-          <li key={job.node.id}>{job.node.frontmatter.title}</li>
-        ))}
-      </ul>
-    </section>
+    <>
+      { jobs.map((job) => (
+        <div key={job.node.id}>
+          <h3>{job.node.frontmatter.title}</h3>
+          <p>
+            {job.node.excerpt}
+          <Link to={job.node.fields.slug}>learn more!</Link> 
+          </p>
+        </div>
+      ))}
+    </>
   );
 };
 
@@ -45,7 +50,7 @@ const ActiveJobs = (props) => {
           }
         }
       `}
-      render={data => <ActiveJobs data={data} {...props} />}
+      render={data => <JobList data={data} {...props} />}
     />
   );
 }

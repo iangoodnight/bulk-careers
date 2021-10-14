@@ -1,6 +1,6 @@
 import * as React from 'react';
 import About from '../components/About';
-// import ActiveJobs from '../components/ActiveJobs';
+import Careers from '../components/Careers';
 import Employees from '../components/Employees';
 import Layout from '../components/Layout';
 import Hero from '../components/Hero';
@@ -12,6 +12,7 @@ const IndexPage = () => {
       <Hero />
       <About />
       <Employees />
+      <Careers />
     </Layout>
   )
 }

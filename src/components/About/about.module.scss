@@ -1,15 +1,7 @@
 .about {
-  -webkit-box-shadow: inset 0px -30px 50px 0px rgba(0,0,0,0.75);
-  box-shadow: inset 0px -30px 50px 0px rgba(0,0,0,0.75);
-  color: #232129;
-
   div {
     margin: 0;
     padding: 0 8em;
-
-    p {
-      padding: 0 2em 1em;
-    }
 
     button {
       color: #fff;
@@ -34,13 +26,6 @@
         border-color: #000;
       }
     }
-  }
-
-  h2 {
-    background-color: #000;
-    color: #fff;
-    padding: 2em 6em 1em;
-    text-align: right;
   }
 
   .wrapper {
