@@ -29,12 +29,12 @@ const Employees = () => {
         <div className={icon}>
           <StaticImage
             alt="Natural Essentials Inc"
-            height={32}
+            height={30}
             layout="fixed"
             objectFit="contain"
             placeholder="blurred"
             src="../../images/icon.png"
-            width={32}
+            width={30}
           />
         </div>
         <h3>Our People</h3>
@@ -65,12 +65,12 @@ const Employees = () => {
         <div className={icon}>
           <StaticImage
             alt="Natural Essentials Inc"
-            height={32}
+            height={30}
             layout="fixed"
             objectFit="contain"
             placeholder="blurred"
             src="../../images/icon.png"
-            width={32}
+            width={30}
           />
         </div>
         <h3>Our hiring practices</h3>
@@ -86,12 +86,12 @@ const Employees = () => {
         <div className={icon}>
           <StaticImage
             alt="Natural Essentials Inc"
-            height={32}
+            height={30}
             layout="fixed"
             objectFit="contain"
             placeholder="blurred"
             src="../../images/icon.png"
-            width={32}
+            width={30}
           />
         </div>
         <button>
