@@ -1,6 +1,91 @@
-.formGroup {
-  input,
-  label {
-    display: block;
+.app {
+  padding: 2em;
+
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    padding: 1em 1em 1em 0;
+  }
+
+  h3 {
+    border: none;
+    font-size: 1em;
+    letter-spacing: unset;
+    margin: 0;
+    padding: 1em 0;
+    text-transform: none;
+
+    &.employer {
+      border: none;
+      font-weight: bold;
+      font-size: 1.2em;
+      letter-spacing: .1em;
+      text-align: center;
+    }
+  }
+
+  .addressBlock {
+    div:nth-child(2) {
+      width: 100%;
+    }
+  }
+
+  .formGroup {
+    padding: 1em 2em 1em;
+    min-width: 50%;
+
+    input,
+    label {
+      display: block;
+    }
+
+    input,
+    select {
+      border: 2px solid rgba(0,0,0,0);
+      border-bottom: 2px solid #000;
+      border-radius: .3em;
+      font-size: 1em;
+      outline: none;
+      padding: .25em;
+
+      &:focus {
+        border: 2px solid #000;
+      }
+    }
+
+    span {
+      font-size: .8em;
+      color: red;
+    }
+
+    textarea {
+      width: 100%;
+    }
+
+    &.radio {
+      div {
+        display: flex;
+
+        label {
+          min-width: 4em;
+        }
+      }
+    }
+
+    &.textarea {
+      width: 100%;
+    }
+  }
+
+  fieldset {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .full {
+    width: 100%;
+    padding: 1em 2em 0;
   }
 }

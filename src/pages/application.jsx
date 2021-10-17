@@ -20,7 +20,6 @@ const ApplicationPage = ({ data }) => {
 
   return (
     <Layout>
-      <h1>Application for Employment</h1>
       <Application openJobs={openJobs} />
     </Layout>
   );
