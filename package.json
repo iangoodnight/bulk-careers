@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
-    "start": "gatsby develop && netlify-lambda serve src/lambda",
+    "start": "netlify dev",
     "build": "gatsby build",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
