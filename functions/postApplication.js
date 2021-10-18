@@ -1,7 +1,10 @@
-import { initializeApp } from 'firebase/app';
-import dotenv from 'dotenv';
+const { initializeApp } = require('firebase/app');
 
-dotenv.config({
+const { getDatabase, ref, set } = require('firebase/database');
+
+const axios = require('axios');
+
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
@@ -17,6 +20,16 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
+function writeApplicationData(data) {
+  const db = getDatabase(app);
+
+  const { firstName, lastName } = data;
+
+  const id = `${Date.now()}-${firstName}-${lastName}`;
+
+  set(ref(db, `applicants/${id}`), data);
+}
+
 const headers = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'Content-Type',
@@ -25,9 +38,18 @@ const headers = {
 exports.handler = async (event) => {
   const data = JSON.parse(event.body);
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({test: "foo"}),
-    headers,
-  };
+  try {
+    writeApplicationData(data);
+    return {
+      statusCode: 200,
+      body: JSON.stringify({test: 'foo'}),
+      headers,
+    };
+  } catch (error) {
+    return {
+      statusCode: 401,
+      body: JSON.stringify({msg: error.toString()}),
+      headers,
+    };
+  }
 };

@@ -47,7 +47,7 @@ const Label = ({ children, errors = {}, htmlFor = '', key, touched = {} }) => {
 
 const Application = ({ openJobs }) => {
   const endpoints = {
-    post: '/.netlify/lamdba/postApplication',
+    post: '/.netlify/functions/postApplication',
   };
 
   const stateAbbrs = [
@@ -204,12 +204,12 @@ const Application = ({ openJobs }) => {
           await new Promise((r) => setTimeout(r, 500));
           alert(JSON.stringify(values, null, 2));
           const response = await fetch(endpoints.post, {
-            method: 'GET',
-            /*body: JSON.stringify(values),
+            method: 'POST',
+            body: JSON.stringify(values),
             headers: {
               'Content-Type': 'application/json',
-              'Accept': 'application/json',
-            },*/
+              Accept: 'application/json',
+            },
           });
           console.log(response);
           console.log(response.body);
