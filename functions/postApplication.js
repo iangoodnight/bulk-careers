@@ -19,22 +19,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-function writeApplicationData(data) {
-  const db = getDatabase(app);
-
-  const { firstName, lastName } = data;
-
-  const id = `${Date.now()}-${firstName}-${lastName}`;
-
-  set(ref(db, `applicants/${id}`), data)
-    .then(() => {
-      console.log('Saved it!')
-    })
-    .catch((error) => {
-      console.log('Problems saving: ', error.message);
-    });
-}
-
 const headers = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'Content-Type',
@@ -42,10 +26,6 @@ const headers = {
 
 exports.handler = async (event) => {
   const data = JSON.parse(event.body);
-
-  console.log('FirebaseConfig');
-  console.log(firebaseConfig);
-  console.log(app);
 
   const db = getDatabase(app);
 
@@ -59,7 +39,7 @@ exports.handler = async (event) => {
       return {
         statusCode: 200,
         body: JSON.stringify({test: 'foo'}),
-        headers,
+        // headers,
       };
     })
     .catch((error) => {
@@ -67,7 +47,7 @@ exports.handler = async (event) => {
       return {
         statusCode: 400,
         body: JSON.stringify({msg: error.toString()}),
-        headers,
+        // headers,
       };
     });
 };
