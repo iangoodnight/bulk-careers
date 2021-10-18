@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Formik, Field, Form } from 'formik';
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 import ErrorSchema from '../../lib/errorSchema.js';
 import {
   app,
@@ -47,7 +47,7 @@ const Label = ({ children, errors = {}, htmlFor = '', key, touched = {} }) => {
 
 const Application = ({ openJobs }) => {
   const endpoints = {
-    post: './.netlify/functions/postApplication',
+    post: '/.netlify/lamdba/postApplication',
   };
 
   const stateAbbrs = [
@@ -204,11 +204,15 @@ const Application = ({ openJobs }) => {
           await new Promise((r) => setTimeout(r, 500));
           alert(JSON.stringify(values, null, 2));
           const response = await fetch(endpoints.post, {
-            method: 'post',
-            body: JSON.stringify({foo:'bar'}),
-            headers: {'Content-Type': 'application/json'},
+            method: 'GET',
+            /*body: JSON.stringify(values),
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+            },*/
           });
           console.log(response);
+          console.log(response.body);
           const data = await response.json();
           console.log(data);
           console.log('submitted');
