@@ -47,7 +47,7 @@ exports.handler = async (event) => {
     };
   } catch (error) {
     return {
-      statusCode: 401,
+      statusCode: 400,
       body: JSON.stringify({msg: error.toString()}),
       headers,
     };

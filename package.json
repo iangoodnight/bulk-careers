@@ -11,9 +11,9 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
+    "develop": "gatsby develop && netlify-lambda serve src/lambda",
     "start": "netlify dev",
-    "build": "gatsby build",
+    "build": "gatsby build && netlify-lambda build src/lambda",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
