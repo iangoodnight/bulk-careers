@@ -17,7 +17,8 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
       __key: 'images',
-    }, {
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'jobs',
@@ -25,6 +26,6 @@ module.exports = {
       },
       __key: 'jobs',
     },
-    'gatsby-transformer-remark'
+    'gatsby-transformer-remark',
   ],
 };

@@ -25,7 +25,7 @@ JobPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
-}
+};
 
 export default JobPost;
 

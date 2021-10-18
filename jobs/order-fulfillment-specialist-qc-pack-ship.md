@@ -4,6 +4,7 @@ postDate: 2021-10-15T15:06:08.379Z
 active: true
 title: Order Fulfillment Specialist QC/Pack/Ship
 ---
+
 The Order Fulfillment QC/Pack/Ship Specialist’s primary function is to support E commerce distribution by performing the job duty of QC/Pack/Ship operations. This involves order inspection, packaging, and shipment. All Order Fulfillment Associates are responsible for general work cell upkeep / housekeeping duties to ensure a safe, clean, and orderly work environment. The Order Fulfillment QC/Pack/Ship Specialist works on an item based transactional basis in adherence with company quotas. The Order Fulfillment QC/Pack/Ship Specialist is a full time position that works 5 days a week, 40+ hours, and the hours of work are Monday through Sunday 7:00 AM to 4:30 PM +/- that typically requires working weekends during the Thanksgiving Holiday Season. Bulk Apothecary works out of a 140,000 square foot distribution center and is located in Aurora, OH.
 
 ## Duties and Responsibilities
@@ -19,11 +20,11 @@ The Order Fulfillment QC/Pack/Ship Specialist’s primary function is to support
 - This includes using various websites and / or computer software such as UPS, Fedex, USPS, and / or Shipstation
 - Must assemble, label and complete system transaction of shipping for each individual shipment
 - The majority of the volume (over 98%) includes standard online e commerce shipments
-- Limited volume may include International paperwork, hazardous ingredients, or additional forms for private label accounts 
+- Limited volume may include International paperwork, hazardous ingredients, or additional forms for private label accounts
 - Ensures all transactions are executed correctly and appropriately by status
-- Status may include backorder products or refunded products Quota Expectations*:
+- Status may include backorder products or refunded products Quota Expectations\*:
 - Quotas are tier based levels and are determined by area of work within Order Fulfillment
-- Required to obtain posted minimum quota tier based on area of work within Order Fulfillment Quality Expectations*:
+- Required to obtain posted minimum quota tier based on area of work within Order Fulfillment Quality Expectations\*:
   - Below Minimum: Period Accuracy = 97.5 %
   - Minimum: Period Accuracy = 98.75%
   - Expected: Period Accuracy = 99.3%
@@ -34,7 +35,7 @@ The Order Fulfillment QC/Pack/Ship Specialist’s primary function is to support
 - Utilizing computers, tablets, scanners, printers to fulfill customer orders
 - Assist in other areas when deemed necessary by Order Fulfillment Leadership
 
-*This job description is not designed to cover or contain a comprehensive listing of activities, duties or responsibilities that are required of the employee for this job; Duties, responsibilities and activities may change at any time with or without notice
+\*This job description is not designed to cover or contain a comprehensive listing of activities, duties or responsibilities that are required of the employee for this job; Duties, responsibilities and activities may change at any time with or without notice
 
 ## Knowledge, Skills and Abilities Required
 
@@ -55,7 +56,7 @@ The Order Fulfillment QC/Pack/Ship Specialist’s primary function is to support
 - Specific vision abilities required by this job include close vision, distance vision, color vision, peripheral vision, depth perception, and ability to adjust focus
 - Ability to tolerate conditions associated with no air conditioning
 
-*This job description is not designed to cover or contain a comprehensive listing of activities, duties or responsibilities that are required of the employee for this job; Duties, responsibilities and activities may change at any time with or without notice
+\*This job description is not designed to cover or contain a comprehensive listing of activities, duties or responsibilities that are required of the employee for this job; Duties, responsibilities and activities may change at any time with or without notice
 
 Starting Pay is $11.50 per hour
 
@@ -63,4 +64,3 @@ Starting Pay is $11.50 per hour
 
 - 401k and Vacation after 1 year
 - Benefits available after 90 days of employment
-

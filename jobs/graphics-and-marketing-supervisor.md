@@ -4,6 +4,7 @@ postDate: 2021-10-15T14:43:58.538Z
 active: false
 title: Graphics and Marketing Supervisor
 ---
+
 The Graphics and Marketing Supervisor at Natural Essentials, Inc. DBA Bulk Apothecary will supervise, lead, and drive developmental workflow as well as production within the Graphics Division. He / She will be responsible for supervising, managing, training, and providing direction and structure to a team of Press Operators, Graphics Artists, and Social Media Specialists. The required hours for this role is Mon - Fri 8:00 am - 5:00 pm +/- in Aurora, OH.
 
 ## Duties and Responsibilities

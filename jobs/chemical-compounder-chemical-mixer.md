@@ -4,10 +4,10 @@ postDate: 2021-10-13T20:33:34.449Z
 active: true
 title: Chemical Compounder / Chemical Mixer
 ---
+
 A Chemical Compounder responsibilities include the mixing of raw materials to create finished products according to the batch sheets. Also responsible for weighing the correct chemicals and sampling finished product to quality for approval. Has an understanding of all of the company’s products as well as all the mixing equipment.
 
 ## Job Responsibilities
-
 
 - Cleaning all equipment , tanks, and vessels as needed.
 - Observes and follows safety procedures and S.O.P’s set by the company.

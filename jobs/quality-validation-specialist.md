@@ -4,6 +4,7 @@ postDate: 2021-10-15T15:35:03.556Z
 active: true
 title: Quality Validation Specialist
 ---
+
 The Validation Specialist is responsible for performing complex validation and qualification activities for critical equipment, utilities and processes used in cGMP. This position will need to travel frequently between the Manufacturing Facility and the Distribution Facility. The hours for this position are 8:00 a.m. until 4:30 p.m., overtime may be required, and the hours may need to be adjusted during peak periods, or to meet the needs of the company in certain situations. This is a Salaried Exempt role, due to the nature of the position.
 
 ## Duties and Responsibilities
@@ -40,4 +41,3 @@ The Validation Specialist is responsible for performing complex validation and q
 - Ability to work independently, within prescribed guidelines, or as a team member.
 - Experience with Google Suite and Microsoft Office applications.
 - Bachelors Degree in Engineering or a related degree
-

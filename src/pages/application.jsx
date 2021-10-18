@@ -8,14 +8,13 @@ const ApplicationPage = ({ data }) => {
 
   const openJobs = [
     ['default', 'Any open position'],
-    ...edges.map(edge => [
-      edge.node.id,
-      edge.node.frontmatter.title
-    ]).sort(([,titleA], [,titleB]) => {
-      if (titleA > titleB) return 1;
-      if (titleB > titleA) return -1;
-      return 0;
-    })
+    ...edges
+      .map((edge) => [edge.node.id, edge.node.frontmatter.title])
+      .sort(([, titleA], [, titleB]) => {
+        if (titleA > titleB) return 1;
+        if (titleB > titleA) return -1;
+        return 0;
+      }),
   ];
 
   return (
@@ -27,7 +26,7 @@ const ApplicationPage = ({ data }) => {
 
 export const query = graphql`
   query OpenJobsQuery {
-    allMarkdownRemark(filter: {frontmatter: {active: {eq: true}}}) {
+    allMarkdownRemark(filter: { frontmatter: { active: { eq: true } } }) {
       edges {
         node {
           frontmatter {

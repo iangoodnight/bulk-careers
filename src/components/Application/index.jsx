@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Formik, Field, Form } from 'formik';
-import * as Yup from 'yup';
+import fetch from 'node-fetch';
 import ErrorSchema from '../../lib/errorSchema.js';
 import {
   app,
@@ -9,18 +9,16 @@ import {
   formGroup,
   full,
   radio,
-  textarea
+  textarea,
 } from './application.module.scss';
 
-const FormGroup = ({
-  children,
-  isRadio = false,
-  isTextArea = false
-}) => {
+const FormGroup = ({ children, isRadio = false, isTextArea = false }) => {
   return (
-    <div className={
-      `${formGroup} ${isRadio ? radio: ''} ${isTextArea ? textarea: ''}`
-    }>
+    <div
+      className={`${formGroup} ${isRadio ? radio : ''} ${
+        isTextArea ? textarea : ''
+      }`}
+    >
       {children}
     </div>
   );
@@ -29,8 +27,8 @@ const FormGroup = ({
 const Fieldset = ({ children, legend, className = '' }) => {
   return (
     <fieldset className={className}>
-      { legend && <legend>{legend}</legend> }
-      { children }
+      {legend && <legend>{legend}</legend>}
+      {children}
     </fieldset>
   );
 };
@@ -40,28 +38,75 @@ const Label = ({ children, errors = {}, htmlFor = '', key, touched = {} }) => {
   return (
     <label htmlFor={htmlFor}>
       {children}
-      { touched[identifier] &&
-        errors[identifier] &&
+      {touched[identifier] && errors[identifier] && (
         <span>{errors[identifier]}</span>
-      }
+      )}
     </label>
   );
 };
 
 const Application = ({ openJobs }) => {
+  const endpoints = {
+    post: './.netlify/functions/postApplication',
+  };
+
   const stateAbbrs = [
     '--',
-    'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
-    'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD',
-    'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ',
-    'NM', 'NY', 'NC', 'ND', ,'OH', 'OK', 'OR', 'PA', 'RI', 'SC',
-    'SD', 'TN', 'TX', 'UT', 'VT',  'VA', 'WA', 'WV', 'WI', 'WY'
+    'AL',
+    'AK',
+    'AZ',
+    'AR',
+    'CA',
+    'CO',
+    'CT',
+    'DE',
+    'FL',
+    'GA',
+    'HI',
+    'ID',
+    'IL',
+    'IN',
+    'IA',
+    'KS',
+    'KY',
+    'LA',
+    'ME',
+    'MD',
+    'MA',
+    'MI',
+    'MN',
+    'MS',
+    'MO',
+    'MT',
+    'NE',
+    'NV',
+    'NH',
+    'NJ',
+    'NM',
+    'NY',
+    'NC',
+    'ND',
+    'OH',
+    'OK',
+    'OR',
+    'PA',
+    'RI',
+    'SC',
+    'SD',
+    'TN',
+    'TX',
+    'UT',
+    'VT',
+    'VA',
+    'WA',
+    'WV',
+    'WI',
+    'WY',
   ];
 
   return (
     <main className={app}>
-    
-    <h1>Application for Employment</h1>
+      <h1>Application for Employment</h1>
 
       <Formik
         initialValues={{
@@ -158,6 +203,15 @@ const Application = ({ openJobs }) => {
         onSubmit={async (values) => {
           await new Promise((r) => setTimeout(r, 500));
           alert(JSON.stringify(values, null, 2));
+          const response = await fetch(endpoints.post, {
+            method: 'post',
+            body: JSON.stringify({foo:'bar'}),
+            headers: {'Content-Type': 'application/json'},
+          });
+          console.log(response);
+          const data = await response.json();
+          console.log(data);
+          console.log('submitted');
         }}
         validationSchema={ErrorSchema}
       >
@@ -227,10 +281,11 @@ const Application = ({ openJobs }) => {
 
               <FormGroup>
                 <Field as="select" id="state" name="state">
-                  { stateAbbrs.map((state) => (
-                      <option key={state} value={state}>{state}</option>
-                    )
-                  )}
+                  {stateAbbrs.map((state) => (
+                    <option key={state} value={state}>
+                      {state}
+                    </option>
+                  ))}
                 </Field>
                 <Label htmlFor="state" errors={errors} touched={touched}>
                   State
@@ -267,109 +322,97 @@ const Application = ({ openJobs }) => {
                   Are you entitled to work in the U.S.?
                 </h3>
                 <div role="group" aria-labelledby="entitled-radio">
-                  <label>
+                  <label htmlFor="entitled-true">
                     <Field
                       checked={values.entitledToWork === true}
+                      id="entitled-true"
                       name="entitledToWork"
-                      onChange={() => (
-                        setFieldValue("entitledToWork", true)
-                      )}
+                      onChange={() => setFieldValue('entitledToWork', true)}
                       type="radio"
                       value={true}
                     />
                     Yes
                   </label>
-                  <label>
+                  <label htmlFor="entitled-false">
                     <Field
                       checked={values.entitledToWork === false}
+                      id="entitled-false"
                       name="entitledToWork"
-                      onChange={() => (
-                        setFieldValue("entitledToWork", false)
-                      )}
+                      onChange={() => setFieldValue('entitledToWork', false)}
                       type="radio"
                       value={false}
                     />
                     No
                   </label>
-                  {
-                    touched.entitledToWork &&
-                    errors.entitledToWork &&
+                  {touched.entitledToWork && errors.entitledToWork && (
                     <span>{errors.entitledToWork}</span>
-                  }
+                  )}
                 </div>
               </FormGroup>
 
               <FormGroup isRadio={true}>
                 <h3 id="age-radio">Are you 17 or younger?</h3>
                 <div role="group" aria-labelledby="age-radio">
-                  <label>
+                  <label htmlFor="younger-true">
                     <Field
                       checked={values.youngerThan18 === true}
+                      id="younger-true"
                       name="youngerThan18"
-                      onChange={() => (
-                        setFieldValue("youngerThan18", true)
-                      )}
+                      onChange={() => setFieldValue('youngerThan18', true)}
                       type="radio"
                       value={true}
                     />
                     Yes
                   </label>
-                  <label>
+                  <label htmlFor="younger-false">
                     <Field
                       checked={values.youngerThan18 === false}
+                      id="younger-false"
                       name="youngerThan18"
-                      onChange={() => (
-                        setFieldValue("youngerThan18", false)
-                      )}
+                      onChange={() => setFieldValue('youngerThan18', false)}
                       type="radio"
                       value={false}
                     />
                     No
                   </label>
-                  {
-                    touched.youngerThan18 &&
-                    errors.youngerThan18 &&
+                  {touched.youngerThan18 && errors.youngerThan18 && (
                     <span>{errors.youngerThan18}</span>
-                  }
+                  )}
                 </div>
               </FormGroup>
-              
+
               <FormGroup isRadio={true}>
                 <h3 id="convicted-radio">
                   Have you been convicted of a felony or been incarcerated in
                   connection with a felony in the past seven years?
                 </h3>
                 <div role="group" aria-labelledby="convicted-radio">
-                  <label>
+                  <label htmlFor="convicted-true">
                     <Field
                       checked={values.convictedFelon === true}
+                      id="convicted-true"
                       name="convictedFelon"
-                      onChange={() => (
-                        setFieldValue("convictedFelon", true)
-                      )}
+                      onChange={() => setFieldValue('convictedFelon', true)}
                       type="radio"
                       value={true}
                     />
                     Yes
                   </label>
-                  <label>
+                  <label htmlFor="convicted-false">
                     <Field
                       checked={values.convictedFelon === false}
+                      id="convicted-false"
                       name="convictedFelon"
-                      onChange={() => (
-                        setFieldValue("convictedFelon", false)
-                      )}
+                      onChange={() => setFieldValue('convictedFelon', false)}
                       type="radio"
                       value={false}
                     />
                     No
                   </label>
+                  {touched.convictedFelon && errors.convictedFelon && (
+                    <span>{errors.convictedFelon}</span>
+                  )}
                 </div>
-                {
-                  touched.convictedFelon &&
-                  errors.convictedFelon &&
-                  <span>{errors.convictedFelon}</span>
-                }
               </FormGroup>
 
               <FormGroup isTextArea={true}>
@@ -386,90 +429,74 @@ const Application = ({ openJobs }) => {
                   name="felonyExplanation"
                 />
               </FormGroup>
-               
+
               <FormGroup isRadio={true}>
-                <h3 id="probation-radio">
-                  Are you currently on probation?
-                </h3>
+                <h3 id="probation-radio">Are you currently on probation?</h3>
                 <div role="group" aria-labelledby="probation-radio">
-                  <label>
+                  <label htmlFor="probation-true">
                     <Field
                       checked={values.probation === true}
+                      id="probation-true"
                       name="probation"
-                      onChange={() => (
-                        setFieldValue("probation", true)
-                      )}
+                      onChange={() => setFieldValue('probation', true)}
                       type="radio"
                       value={true}
                     />
                     Yes
                   </label>
-                  <label>
+                  <label htmlFor="probation-false">
                     <Field
                       checked={values.probation === false}
+                      id="probation-false"
                       name="probation"
-                      onChange={() => (
-                        setFieldValue("probation", false)
-                      )}
+                      onChange={() => setFieldValue('probation', false)}
                       type="radio"
                       value={false}
                     />
                     No
-                    {
-                      touched.probation &&
-                      errors.probation &&
-                      <span>{errors.probation}</span>
-                    }
                   </label>
+                  {touched.probation && errors.probation && (
+                    <span>{errors.probation}</span>
+                  )}
                 </div>
               </FormGroup>
 
               <FormGroup>
                 <h3>If so, when will your probation be over?</h3>
-                <Field
-                  id="probationEnd"
-                  name="probationEnd"
-                  type="date"
-                />
+                <Field id="probationEnd" name="probationEnd" type="date" />
                 <Label htmlFor="probationEnd" errors={errors} touched={touched}>
                   Date
                 </Label>
               </FormGroup>
-               
+
               <FormGroup isRadio={true}>
-                <h3 id="military-radio">
-                  Military Service?
-                </h3>
+                <h3 id="military-radio">Military Service?</h3>
                 <div role="group" aria-labelledby="military-radio">
-                  <label>
+                  <label htmlFor="military-true">
                     <Field
                       checked={values.militaryService === true}
+                      id="military-true"
                       name="militaryService"
-                      onChange={() => (
-                        setFieldValue("militaryService", true)
-                      )}
+                      onChange={() => setFieldValue('militaryService', true)}
                       type="radio"
                       value={true}
                     />
                     Yes
                   </label>
-                  <label>
+                  <label htmlFor="military-false">
                     <Field
                       checked={values.militaryService === false}
+                      id="military-false"
                       name="militaryService"
-                      onChange={() => (
-                        setFieldValue("militaryService", false)
-                      )}
+                      onChange={() => setFieldValue('militaryService', false)}
                       type="radio"
                       value={false}
                     />
                     No
-                    {
-                      touched.militaryService &&
-                      errors.militaryService &&
-                      <span>{errors.militaryService}</span>
-                    }
                   </label>
+                  {touched.militaryService && errors.militaryService && (
+                    <span>{errors.militaryService}</span>
+                  )}
                 </div>
               </FormGroup>
 
@@ -480,44 +507,45 @@ const Application = ({ openJobs }) => {
                   Branch
                 </Label>
               </FormGroup>
-               
+
               <FormGroup isRadio={true}>
                 <h3 id="physical">
-                  You may be required to lift 25-60 lbs repeatedly and work 
-                  around perfumes and light fumes.  Do you have any physical 
-                  limitations or allergies that would prevent you from doing 
+                  You may be required to lift 25-60 lbs repeatedly and work
+                  around perfumes and light fumes. Do you have any physical
+                  limitations or allergies that would prevent you from doing
                   this job?
                 </h3>
                 <div role="group" aria-labelledby="physical">
-                  <label>
+                  <label htmlFor="physical-true">
                     <Field
                       checked={values.physicalLimitations === true}
+                      id="physical-true"
                       name="physicalLimitations"
-                      onChange={() => (
-                        setFieldValue("physicalLimitations", true)
-                      )}
+                      onChange={() =>
+                        setFieldValue('physicalLimitations', true)
+                      }
                       type="radio"
                       value={true}
                     />
                     Yes
                   </label>
-                  <label>
+                  <label htmlFor="physical-false">
                     <Field
                       checked={values.physicalLimitations === false}
+                      id="physical-false"
                       name="physicalLimitations"
-                      onChange={() => (
-                        setFieldValue("physicalLimitations", false)
-                      )}
+                      onChange={() =>
+                        setFieldValue('physicalLimitations', false)
+                      }
                       type="radio"
                       value={false}
                     />
                     No
                   </label>
-                  {
-                    touched.physicalLimitations &&
-                    errors.physicalLimitations &&
-                    <span>{errors.physicalLimitations}</span>
-                  }
+                  {touched.physicalLimitations &&
+                    errors.physicalLimitations && (
+                      <span>{errors.physicalLimitations}</span>
+                    )}
                 </div>
               </FormGroup>
             </Fieldset>
@@ -528,8 +556,10 @@ const Application = ({ openJobs }) => {
                   Which position are you applying for?
                 </Label>
                 <Field as="select" id="position" name="position">
-                  { openJobs.map(([id, job]) => (
-                    <option key={id} value={job}>{job}</option>
+                  {openJobs.map(([id, job]) => (
+                    <option key={id} value={job}>
+                      {job}
+                    </option>
                   ))}
                 </Field>
               </FormGroup>
@@ -556,43 +586,37 @@ const Application = ({ openJobs }) => {
                 >
                   Date Available?
                 </Label>
-                <Field id="dateAvailable" name="dateAvailable" type="date"/>
+                <Field id="dateAvailable" name="dateAvailable" type="date" />
               </FormGroup>
 
               <FormGroup isRadio={true}>
-                <h3 id="currently">
-                Are you currently employed?
-                </h3>
+                <h3 id="currently">Are you currently employed?</h3>
                 <div role="group" aria-labelledby="currently">
-                  <label>
+                  <label htmlFor="currently-true">
                     <Field
                       checked={values.currentlyEmployed === true}
+                      id="currently-true"
                       name="currentlyEmployed"
-                      onChange={() => (
-                        setFieldValue("currentlyEmployed", true)
-                      )}
+                      onChange={() => setFieldValue('currentlyEmployed', true)}
                       type="radio"
                       value={true}
                     />
                     Yes
                   </label>
-                  <label>
+                  <label htmlFor="currently-false">
                     <Field
                       checked={values.currentlyEmployed === false}
+                      id="currently-false"
                       name="currentlyEmployed"
-                      onChange={() => (
-                        setFieldValue("currentlyEmployed", false)
-                      )}
+                      onChange={() => setFieldValue('currentlyEmployed', false)}
                       type="radio"
                       value={false}
                     />
                     No
-                    {
-                      touched.currentlyEmployed &&
-                      errors.currentlyEmployed &&
-                      <span>{errors.currentlyEmployed}</span>
-                    }
                   </label>
+                  {touched.currentlyEmployed && errors.currentlyEmployed && (
+                    <span>{errors.currentlyEmployed}</span>
+                  )}
                 </div>
               </FormGroup>
 
@@ -601,35 +625,31 @@ const Application = ({ openJobs }) => {
                   Have you ever applied with this company before?
                 </h3>
                 <div role="group" aria-labelledby="applied">
-                  <label>
+                  <label htmlFor="ever-true">
                     <Field
                       checked={values.everApplied === true}
+                      id="ever-true"
                       name="everApplied"
-                      onChange={() => (
-                        setFieldValue("everApplied", true)
-                      )}
+                      onChange={() => setFieldValue('everApplied', true)}
                       type="radio"
                       value={true}
                     />
                     Yes
                   </label>
-                  <label>
+                  <label htmlFor="ever-false">
                     <Field
                       checked={values.everApplied === false}
+                      id="ever-false"
                       name="everApplied"
-                      onChange={() => (
-                        setFieldValue("everApplied", false)
-                      )}
+                      onChange={() => setFieldValue('everApplied', false)}
                       type="radio"
                       value={false}
                     />
                     No
-                    {
-                      touched.everApplied &&
-                      errors.everApplied &&
-                      <span>{errors.everApplied}</span>
-                    }
                   </label>
+                  {touched.everApplied && errors.everApplied && (
+                    <span>{errors.everApplied}</span>
+                  )}
                 </div>
               </FormGroup>
 
@@ -638,45 +658,44 @@ const Application = ({ openJobs }) => {
                   Have you ever been employed by Natural Essentials Inc.?
                 </h3>
                 <div role="group" aria-labelledby="previous">
-                  <label>
+                  <label htmlFor="previous-true">
                     <Field
                       checked={values.naturalEssentialsPreviously === true}
+                      id="previous-true"
                       name="naturalEssentialsPreviously"
-                      onChange={() => (
-                        setFieldValue("naturalEssentialsPreviously", true)
-                      )}
+                      onChange={() =>
+                        setFieldValue('naturalEssentialsPreviously', true)
+                      }
                       type="radio"
                       value={true}
                     />
                     Yes
                   </label>
-                  <label>
+                  <label htmlFor="previous-false">
                     <Field
                       checked={values.naturalEssentialsPreviously === false}
+                      id="previous-false"
                       name="naturalEssentialsPreviously"
-                      onChange={() => (
-                        setFieldValue("naturalEssentialsPreviously", false)
-                      )}
+                      onChange={() =>
+                        setFieldValue('naturalEssentialsPreviously', false)
+                      }
                       type="radio"
                       value={false}
                     />
                     No
-                    {
-                      touched.naturalEssentialsPreviously &&
-                      errors.naturalEssentialsPreviously &&
-                      <span>{errors.naturalEssentialsPreviously}</span>
-                    }
                   </label>
+                  {touched.naturalEssentialsPreviously &&
+                    errors.naturalEssentialsPreviously && (
+                      <span>{errors.naturalEssentialsPreviously}</span>
+                    )}
                 </div>
               </FormGroup>
             </Fieldset>
 
             <h2>Prior work experience</h2>
-            
+
             <h3 className={employer}>Employer 1</h3>
-            <Fieldset
-              legend="Current (or most recent)"
-            >
+            <Fieldset legend="Current (or most recent)">
               <FormGroup>
                 <Field id="employerWork1" name="employerWork1" />
                 <Label
@@ -690,93 +709,76 @@ const Application = ({ openJobs }) => {
 
               <FormGroup>
                 <Field id="phoneWork1" name="phoneWork1" type="tel" />
-                <Label htmlFor="phoneWork1" errors={errors} touched={touched}> 
+                <Label htmlFor="phoneWork1" errors={errors} touched={touched}>
                   Telephone
                 </Label>
               </FormGroup>
-              
-              <h3 className={full} id="contact1">May we contact?</h3>
+
+              <h3 className={full} id="contact1">
+                May we contact?
+              </h3>
               <FormGroup isRadio={true}>
                 <div role="group" aria-labelledby="contact1">
-                  <label>
+                  <label htmlFor="contact1-true">
                     <Field
                       checked={values.contactWork1 === true}
+                      id="contact1-true"
                       name="contactWork1"
-                      onChange={() => (
-                        setFieldValue("contactWork1", true)
-                      )}
+                      onChange={() => setFieldValue('contactWork1', true)}
                       type="radio"
                       value={true}
                     />
                     Yes
                   </label>
-                  <label>
+                  <label htmlFor="contact1-false">
                     <Field
                       checked={values.contactWork1 === false}
+                      id="contact1-false"
                       name="contactWork1"
-                      onChange={() => (
-                        setFieldValue("contactWork1", false)
-                      )}
+                      onChange={() => setFieldValue('contactWork1', false)}
                       type="radio"
                       value={false}
                     />
                     No
-                    {
-                      touched.contactWork1 &&
-                      errors.contactWork1 &&
-                      <span>{errors.contactWork1}</span>
-                    }
                   </label>
-                </div>             
+                  {touched.contactWork1 && errors.contactWork1 && (
+                    <span>{errors.contactWork1}</span>
+                  )}
+                </div>
               </FormGroup>
             </Fieldset>
 
             <Fieldset className={addressBlock} legend="Address">
               <FormGroup>
                 <Field id="streetWork1" name="streetWork1" />
-                <Label
-                  htmlFor="streetWork1"
-                  errors={errors}
-                  touched={touched}
-                >
+                <Label htmlFor="streetWork1" errors={errors} touched={touched}>
                   Street
                 </Label>
               </FormGroup>
 
               <FormGroup>
                 <Field id="cityWork1" name="cityWork1" />
-                <Label
-                  htmlFor="cityWork1"
-                  errors={errors}
-                  touched={touched}
-                >
+                <Label htmlFor="cityWork1" errors={errors} touched={touched}>
                   City
                 </Label>
               </FormGroup>
-            
+
               <FormGroup>
                 <Field as="select" id="stateWork1" name="stateWork1">
-                  { stateAbbrs.map((state) => (
-                      <option key={state} value={state}>{state}</option>
-                    )
-                  )}
+                  {stateAbbrs.map((state) => (
+                    <option key={state} value={state}>
+                      {state}
+                    </option>
+                  ))}
                 </Field>
-                <Label
-                  htmlFor="stateWork1"
-                  errors={errors}
-                  touched={touched}
-                >
+                <Label htmlFor="stateWork1" errors={errors} touched={touched}>
                   State
                 </Label>
               </FormGroup>
 
               <FormGroup>
                 <Field id="zipWork1" name="zipWork1" />
-                <Label
-                  htmlFor="zipWork1"
-                  errors={errors}
-                  touched={touched}
-                >
+                <Label htmlFor="zipWork1" errors={errors} touched={touched}>
                   Zip
                 </Label>
               </FormGroup>
@@ -801,7 +803,7 @@ const Application = ({ openJobs }) => {
                 </Label>
               </FormGroup>
             </Fieldset>
-        
+
             <Fieldset legend="Immediate supervisor">
               <FormGroup>
                 <Field id="supervisorWork1" name="supervisorWork1" />
@@ -832,9 +834,7 @@ const Application = ({ openJobs }) => {
             </Fieldset>
 
             <h3 className={employer}>Employer 2</h3>
-            <Fieldset
-              legend="Previous employer"
-            >
+            <Fieldset legend="Previous employer">
               <FormGroup>
                 <Field id="employerWork2" name="employerWork2" />
                 <Label
@@ -848,93 +848,76 @@ const Application = ({ openJobs }) => {
 
               <FormGroup>
                 <Field id="phoneWork2" name="phoneWork2" type="tel" />
-                <Label htmlFor="phoneWork2" errors={errors} touched={touched}> 
+                <Label htmlFor="phoneWork2" errors={errors} touched={touched}>
                   Telephone
                 </Label>
               </FormGroup>
-              
-              <h3 className={full} id="contact1">May we contact?</h3>
+
+              <h3 className={full} id="contact2">
+                May we contact?
+              </h3>
               <FormGroup isRadio={true}>
-                <div role="group" aria-labelledby="contact1">
-                  <label>
+                <div role="group" aria-labelledby="contact2">
+                  <label htmlFor="contact2-true">
                     <Field
                       checked={values.contactWork2 === true}
+                      id="contact2-true"
                       name="contactWork2"
-                      onChange={() => (
-                        setFieldValue("contactWork2", true)
-                      )}
+                      onChange={() => setFieldValue('contactWork2', true)}
                       type="radio"
                       value={true}
                     />
                     Yes
                   </label>
-                  <label>
+                  <label htmlFor="contact2-false">
                     <Field
                       checked={values.contactWork2 === false}
+                      id="contact2-false"
                       name="contactWork2"
-                      onChange={() => (
-                        setFieldValue("contactWork2", false)
-                      )}
+                      onChange={() => setFieldValue('contactWork2', false)}
                       type="radio"
                       value={false}
                     />
                     No
-                    {
-                      touched.contactWork2 &&
-                      errors.contactWork2 &&
-                      <span>{errors.contactWork2}</span>
-                    }
                   </label>
-                </div>             
+                  {touched.contactWork2 && errors.contactWork2 && (
+                    <span>{errors.contactWork2}</span>
+                  )}
+                </div>
               </FormGroup>
             </Fieldset>
 
             <Fieldset className={addressBlock} legend="Address">
               <FormGroup>
                 <Field id="streetWork2" name="streetWork2" />
-                <Label
-                  htmlFor="streetWork2"
-                  errors={errors}
-                  touched={touched}
-                >
+                <Label htmlFor="streetWork2" errors={errors} touched={touched}>
                   Street
                 </Label>
               </FormGroup>
 
               <FormGroup>
                 <Field id="cityWork2" name="cityWork2" />
-                <Label
-                  htmlFor="cityWork2"
-                  errors={errors}
-                  touched={touched}
-                >
+                <Label htmlFor="cityWork2" errors={errors} touched={touched}>
                   City
                 </Label>
               </FormGroup>
-            
+
               <FormGroup>
                 <Field as="select" id="stateWork2" name="stateWork2">
-                  { stateAbbrs.map((state) => (
-                      <option key={state} value={state}>{state}</option>
-                    )
-                  )}
+                  {stateAbbrs.map((state) => (
+                    <option key={state} value={state}>
+                      {state}
+                    </option>
+                  ))}
                 </Field>
-                <Label
-                  htmlFor="stateWork2"
-                  errors={errors}
-                  touched={touched}
-                >
+                <Label htmlFor="stateWork2" errors={errors} touched={touched}>
                   State
                 </Label>
               </FormGroup>
 
               <FormGroup>
                 <Field id="zipWork2" name="zipWork2" />
-                <Label
-                  htmlFor="zipWork2"
-                  errors={errors}
-                  touched={touched}
-                >
+                <Label htmlFor="zipWork2" errors={errors} touched={touched}>
                   Zip
                 </Label>
               </FormGroup>
@@ -959,7 +942,7 @@ const Application = ({ openJobs }) => {
                 </Label>
               </FormGroup>
             </Fieldset>
-        
+
             <Fieldset legend="Immediate supervisor">
               <FormGroup>
                 <Field id="supervisorWork2" name="supervisorWork2" />
@@ -990,9 +973,7 @@ const Application = ({ openJobs }) => {
             </Fieldset>
 
             <h3 className={employer}>Employer 3</h3>
-            <Fieldset
-              legend="Previous employer"
-            >
+            <Fieldset legend="Previous employer">
               <FormGroup>
                 <Field id="employerWork3" name="employerWork3" />
                 <Label
@@ -1006,93 +987,76 @@ const Application = ({ openJobs }) => {
 
               <FormGroup>
                 <Field id="phoneWork3" name="phoneWork3" type="tel" />
-                <Label htmlFor="phoneWork3" errors={errors} touched={touched}> 
+                <Label htmlFor="phoneWork3" errors={errors} touched={touched}>
                   Telephone
                 </Label>
               </FormGroup>
-              
-              <h3 className={full} id="contact1">May we contact?</h3>
+
+              <h3 className={full} id="contact3">
+                May we contact?
+              </h3>
               <FormGroup isRadio={true}>
-                <div role="group" aria-labelledby="contact1">
-                  <label>
+                <div role="group" aria-labelledby="contact3">
+                  <label htmlFor="contact3-true">
                     <Field
                       checked={values.contactWork3 === true}
+                      id="contact3-true"
                       name="contactWork3"
-                      onChange={() => (
-                        setFieldValue("contactWork3", true)
-                      )}
+                      onChange={() => setFieldValue('contactWork3', true)}
                       type="radio"
                       value={true}
                     />
                     Yes
                   </label>
-                  <label>
+                  <label htmlFor="contact3-false">
                     <Field
                       checked={values.contactWork3 === false}
+                      id="contact3-false"
                       name="contactWork3"
-                      onChange={() => (
-                        setFieldValue("contactWork3", false)
-                      )}
+                      onChange={() => setFieldValue('contactWork3', false)}
                       type="radio"
                       value={false}
                     />
                     No
-                    {
-                      touched.contactWork3 &&
-                      errors.contactWork3 &&
-                      <span>{errors.contactWork3}</span>
-                    }
                   </label>
-                </div>             
+                  {touched.contactWork3 && errors.contactWork3 && (
+                    <span>{errors.contactWork3}</span>
+                  )}
+                </div>
               </FormGroup>
             </Fieldset>
 
             <Fieldset className={addressBlock} legend="Address">
               <FormGroup>
                 <Field id="streetWork3" name="streetWork3" />
-                <Label
-                  htmlFor="streetWork3"
-                  errors={errors}
-                  touched={touched}
-                >
+                <Label htmlFor="streetWork3" errors={errors} touched={touched}>
                   Street
                 </Label>
               </FormGroup>
 
               <FormGroup>
                 <Field id="cityWork3" name="cityWork3" />
-                <Label
-                  htmlFor="cityWork3"
-                  errors={errors}
-                  touched={touched}
-                >
+                <Label htmlFor="cityWork3" errors={errors} touched={touched}>
                   City
                 </Label>
               </FormGroup>
-            
+
               <FormGroup>
                 <Field as="select" id="stateWork3" name="stateWork3">
-                  { stateAbbrs.map((state) => (
-                      <option key={state} value={state}>{state}</option>
-                    )
-                  )}
+                  {stateAbbrs.map((state) => (
+                    <option key={state} value={state}>
+                      {state}
+                    </option>
+                  ))}
                 </Field>
-                <Label
-                  htmlFor="stateWork3"
-                  errors={errors}
-                  touched={touched}
-                >
+                <Label htmlFor="stateWork3" errors={errors} touched={touched}>
                   State
                 </Label>
               </FormGroup>
 
               <FormGroup>
                 <Field id="zipWork3" name="zipWork3" />
-                <Label
-                  htmlFor="zipWork3"
-                  errors={errors}
-                  touched={touched}
-                >
+                <Label htmlFor="zipWork3" errors={errors} touched={touched}>
                   Zip
                 </Label>
               </FormGroup>
@@ -1117,7 +1081,7 @@ const Application = ({ openJobs }) => {
                 </Label>
               </FormGroup>
             </Fieldset>
-        
+
             <Fieldset legend="Immediate supervisor">
               <FormGroup>
                 <Field id="supervisorWork3" name="supervisorWork3" />
@@ -1146,7 +1110,7 @@ const Application = ({ openJobs }) => {
                 </Label>
               </FormGroup>
             </Fieldset>
-          
+
             <h2>Education</h2>
 
             <Fieldset legend="High school">
@@ -1158,7 +1122,10 @@ const Application = ({ openJobs }) => {
               </FormGroup>
 
               <FormGroup>
-                <Field id="highSchoolYrCompleted" name="highSchoolYrCompleted" />
+                <Field
+                  id="highSchoolYrCompleted"
+                  name="highSchoolYrCompleted"
+                />
                 <Label
                   htmlFor="highSchoolYrCompleted"
                   errors={errors}
@@ -1223,11 +1190,7 @@ const Application = ({ openJobs }) => {
 
               <FormGroup>
                 <Field id="collegeMajor" name="collegeMajor" />
-                <Label
-                  htmlFor="collegeMajor"
-                  errors={errors}
-                  touched={touched} 
-                >
+                <Label htmlFor="collegeMajor" errors={errors} touched={touched}>
                   Major or emphasis
                 </Label>
               </FormGroup>
@@ -1242,7 +1205,7 @@ const Application = ({ openJobs }) => {
               </FormGroup>
 
               <FormGroup>
-                <Field 
+                <Field
                   id="tradeSchoolYrCompleted"
                   name="tradeSchoolYrCompleted"
                 />
@@ -1321,11 +1284,7 @@ const Application = ({ openJobs }) => {
                 >
                   List any applicable special skills, training or proficiencies.
                 </Label>
-                <Field
-                  as="textarea"
-                  id="specialSkills"
-                  name="specialSkills"
-                />
+                <Field as="textarea" id="specialSkills" name="specialSkills" />
               </FormGroup>
             </Fieldset>
 
@@ -1334,21 +1293,13 @@ const Application = ({ openJobs }) => {
             <Fieldset legend="Reference 1">
               <FormGroup>
                 <Field id="reference1" name="reference1" />
-                <Label
-                  htmlFor="reference1"
-                  errors={errors}
-                  touched={touched}
-                >
+                <Label htmlFor="reference1" errors={errors} touched={touched}>
                   Name
                 </Label>
               </FormGroup>
 
               <FormGroup>
-                <Field
-                  id="reference1Phone"
-                  name="reference1Phone"
-                  type="tel"
-                />
+                <Field id="reference1Phone" name="reference1Phone" type="tel" />
                 <Label
                   htmlFor="reference1Phone"
                   errors={errors}
@@ -1362,21 +1313,13 @@ const Application = ({ openJobs }) => {
             <Fieldset legend="Reference 2">
               <FormGroup>
                 <Field id="reference2" name="reference2" />
-                <Label
-                  htmlFor="reference2"
-                  errors={errors}
-                  touched={touched}
-                >
+                <Label htmlFor="reference2" errors={errors} touched={touched}>
                   Name
                 </Label>
               </FormGroup>
 
               <FormGroup>
-                <Field
-                  id="reference2Phone"
-                  name="reference2Phone"
-                  type="tel"
-                />
+                <Field id="reference2Phone" name="reference2Phone" type="tel" />
                 <Label
                   htmlFor="reference2Phone"
                   errors={errors}
@@ -1390,21 +1333,13 @@ const Application = ({ openJobs }) => {
             <Fieldset legend="Reference 3">
               <FormGroup>
                 <Field id="reference3" name="reference3" />
-                <Label
-                  htmlFor="reference3"
-                  errors={errors}
-                  touched={touched}
-                >
+                <Label htmlFor="reference3" errors={errors} touched={touched}>
                   Name
                 </Label>
               </FormGroup>
 
               <FormGroup>
-                <Field
-                  id="reference3Phone"
-                  name="reference3Phone"
-                  type="tel"
-                />
+                <Field id="reference3Phone" name="reference3Phone" type="tel" />
                 <Label
                   htmlFor="reference3Phone"
                   errors={errors}
@@ -1414,18 +1349,17 @@ const Application = ({ openJobs }) => {
                 </Label>
               </FormGroup>
             </Fieldset>
-          
+
             <p>
               Disclaimer - By submitting this form, I hereby certify that the
               above information, to the best of my knowledge, is correct. I
               understand that falsification of this information may prevent me
               from being hired or lead to my dismissal if hired. I also provide
               consent for former employers to be contacted regarding work
-              records. 
+              records.
             </p>
 
             <button type="submit">Submit</button>
-
           </Form>
         )}
       </Formik>

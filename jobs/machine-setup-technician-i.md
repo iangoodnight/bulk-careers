@@ -4,6 +4,7 @@ postDate: 2021-10-15T14:51:40.311Z
 active: true
 title: Machine Setup Technician I
 ---
+
 The Maintenance Tech I is responsible for troubleshooting and repairing equipment, conducting preventive maintenance, other duties assigned. Maintenance Tech I is responsible to know how to set-up every production line and adjust all fills, label machines and coders.
 
 ## Duties and Responsibilities
@@ -25,4 +26,3 @@ The Maintenance Tech I is responsible for troubleshooting and repairing equipmen
 - Must be certified to operate a towmotor, a sit-down as well as a stand-up.
 - Must have basic computer skills
 - Displays good troubleshooting skills.
-

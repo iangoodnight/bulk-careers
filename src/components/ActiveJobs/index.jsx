@@ -10,12 +10,12 @@ const JobList = ({ data }) => {
 
   return (
     <>
-      { jobs.map((job) => (
+      {jobs.map((job) => (
         <div key={job.node.id}>
           <h3>{job.node.frontmatter.title}</h3>
           <p>
             {job.node.excerpt}
-          <Link to={job.node.fields.slug}>learn more!</Link> 
+            <Link to={job.node.fields.slug}>learn more!</Link>
           </p>
         </div>
       ))}
@@ -27,14 +27,14 @@ JobList.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.object,
   }),
-}
+};
 
 const ActiveJobs = (props) => {
   return (
     <StaticQuery
       query={graphql`
         query {
-          allMarkdownRemark(filter: {frontmatter: {active: {eq: true}}}) {
+          allMarkdownRemark(filter: { frontmatter: { active: { eq: true } } }) {
             edges {
               node {
                 id
@@ -50,9 +50,9 @@ const ActiveJobs = (props) => {
           }
         }
       `}
-      render={data => <JobList data={data} {...props} />}
+      render={(data) => <JobList data={data} {...props} />}
     />
   );
-}
+};
 
 export default ActiveJobs;

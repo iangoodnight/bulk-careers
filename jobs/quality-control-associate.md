@@ -4,6 +4,7 @@ postDate: 2021-10-15T15:29:09.458Z
 active: false
 title: Quality Control Associate
 ---
+
 Quality Control in the Manufacturing Plant is responsible for checking the accuracy and integrity of the product being produced. This position must review all documentation at the manufacturing plant for completeness, accuracy, and conformance to specifications. Quality Control must also release production lines to run after prototyping finished goods by comparing official office prototypes and information provided on job reports / work orders. This candidate must possess a keen awareness to detail, and understand the critical nature of the Quality Control position. This position must provide guidance to manufacturing personnel that will assist in the making of good product and alleviate errors.
 
 ## Duties and Responsibilities
@@ -26,13 +27,14 @@ Quality Control in the Manufacturing Plant is responsible for checking the accur
   - Specific Gravity
   - pH
   - Viscosity
- 
-*Must make sure that all in-process and finished goods are status labeled*
+
+_Must make sure that all in-process and finished goods are status labeled_
+
 - Green Labels-release labels
 - Orange Labels-hold labels
 - Red Labels-reject labels
 
-*Or any other task assigned as Management deems necessary for the benefit and betterment of the company*
+_Or any other task assigned as Management deems necessary for the benefit and betterment of the company_
 
 ## Knowledge, Skills and Abilities Required
 

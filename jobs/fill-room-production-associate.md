@@ -4,7 +4,8 @@ postDate: 2021-10-15T14:15:32.219Z
 active: true
 title: Fill Room Production Associate
 ---
-The Fill Room Production Associate for Bulk Apothecary is responsible for completing production work orders for manufacture.  The product contents for this role are limited to Essential Oils, Flavors and Fragrance Oils, and limited to five sizes only. This role works independently of other Production Associates within the Fill Room.  He / She will use internal systems to START/STOP jobs, pull product and or sub assembly components and manufacture from start to finish completed parts. This position is to ensure an uninterrupted supply of zero defect products to support distribution.  This is a full time position, and the hours of work are Monday through Friday 7:00 AM to 3:30 PM.
+
+The Fill Room Production Associate for Bulk Apothecary is responsible for completing production work orders for manufacture. The product contents for this role are limited to Essential Oils, Flavors and Fragrance Oils, and limited to five sizes only. This role works independently of other Production Associates within the Fill Room. He / She will use internal systems to START/STOP jobs, pull product and or sub assembly components and manufacture from start to finish completed parts. This position is to ensure an uninterrupted supply of zero defect products to support distribution. This is a full time position, and the hours of work are Monday through Friday 7:00 AM to 3:30 PM.
 
 ## Duties and Responsibilities
 
@@ -30,7 +31,7 @@ The Fill Room Production Associate for Bulk Apothecary is responsible for comple
 
 ## Working Conditions and Physical Effort
 
-- Moderate physical activity.  Requires handling of average-weight objects up to 50 pounds or standing, sitting and/or walking for more than eight hours per day
+- Moderate physical activity. Requires handling of average-weight objects up to 50 pounds or standing, sitting and/or walking for more than eight hours per day
 - Work involves moderate exposure to unusual elements, such as extreme temperatures, dirt, dust, fumes, smoke, unpleasant odors/fragrances, and/or loud noises
 - This role may use pallet jacks for moving pallets and/or products
 - This job description is not designed to cover or contain a comprehensive listing of activities, duties or responsibilities that are required of the employee for this job; Duties, responsibilities and activities may change at any time with or without notice

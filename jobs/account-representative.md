@@ -4,14 +4,15 @@ postDate: 2021-10-13T19:50:36.414Z
 active: false
 title: Account Representative
 ---
+
 The Account Representative is responsible for managing from cradle to grave,
-customer orders placed with Natural Essentials, Inc.  As an Account
+customer orders placed with Natural Essentials, Inc. As an Account
 Representative, the employee will be a direct point of contact, available 24/7,
-to handle any inbound customer queries.  Once a purchase order is placed, the
+to handle any inbound customer queries. Once a purchase order is placed, the
 Account Analyst is responsible for coordinating with multiple departments of the
 company, including but not limited to Manufacturing, Purchasing, Supply Chain,
 Quality, and Shipping to ensure the output of quality products and on-time
-deliveries to the customer.  Follow up with the customer once the order has been
+deliveries to the customer. Follow up with the customer once the order has been
 delivered is also necessary to reinforce the brand of Natural Essentials, Inc.
 This is a full-time position, with hours of work approximately 8:00 AM – 4:30 PM.
 
@@ -35,7 +36,6 @@ This is a full-time position, with hours of work approximately 8:00 AM – 4:30 
   job
 - Follow up with customer once orders have been delivered to ensure customer
   satisfaction
-
 
 ## Knowledge, Skills and Abilities Required
 

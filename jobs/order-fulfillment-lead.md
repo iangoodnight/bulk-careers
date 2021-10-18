@@ -4,6 +4,7 @@ postDate: 2021-10-15T15:00:41.092Z
 active: false
 title: Order Fulfillment Lead
 ---
+
 The Picking Order Fulfillment Lead for Bulk Apothecary is responsible for the workflow of a team containing 10-20 Order Fulfillment Associates and 1-2 Order Fulfillment Specialists. This role’s primary responsibility is the training, development, and performance management of individuals within their department. He / She will lead Picking and Hold Table as it pertains to online orders placed requiring the shipping service of UPS/Fedex. This position is responsible for leading a team to achieve fulfillment quotas. The Order Fulfillment Division operates 7 days a week. The Picking Order Fulfillment Lead is a full time position that works 5 days a week, 40+ hours, that may require working weekends. Natural Essentials, Inc. DBA Bulk Apothecary works out of a 160,000 square foot distribution center and is located in Aurora, OH.
 
 ## Duties and Responsibilities
@@ -36,7 +37,7 @@ The Picking Order Fulfillment Lead for Bulk Apothecary is responsible for the wo
 
 **NOTE** Over the course of 2017 the order flow of the organization will be changing and this role may assist the implementation and development of shipping within the work cell as the organization moves to Pack / Ship within a single work cell
 
-*This job description is not designed to cover or contain a comprehensive listing of activities, duties or responsibilities that are required of the employee for this job; Duties, responsibilities and activities may change at any time with or without notice
+\*This job description is not designed to cover or contain a comprehensive listing of activities, duties or responsibilities that are required of the employee for this job; Duties, responsibilities and activities may change at any time with or without notice
 
 ## Knowledge, Skills and Abilities Required
 
@@ -55,4 +56,3 @@ The Picking Order Fulfillment Lead for Bulk Apothecary is responsible for the wo
 - This role may use pallet jacks for moving pallets and/or products
 
 **Reports to the Order Fulfillment Supervisor**
-

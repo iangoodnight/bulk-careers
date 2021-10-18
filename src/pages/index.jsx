@@ -14,7 +14,7 @@ const IndexPage = () => {
       <Employees />
       <Careers />
     </Layout>
-  )
-}
+  );
+};
 
 export default IndexPage;

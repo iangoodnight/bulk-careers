@@ -4,6 +4,7 @@ postDate: 2021-10-15T15:39:25.993Z
 active: true
 title: Warehouse Associate - Bulk Apothecary
 ---
+
 The Warehouse Associate for Bulk Apothecary directly supports the replenishment of over 8,500 skus that are sold on our ecommerce store by restocking items within designated locations at our distribution center. Bulk Apothecary is a fast growing soap and candle making supplier located within a 180,000 square foot facility in Aurora, OH. This is a full time, first shift position with hours of work Mon-Fri from 7am-4pm. Occasional weekend work or overtime may be required by demand.
 
 ## Duties and Responsibilities
