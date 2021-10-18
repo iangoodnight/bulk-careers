@@ -53,7 +53,7 @@ exports.handler = async (event) => {
 
   const id = `${Date.now()}-${firstName}-${lastName}`;
 
-  set(ref(db, `applicants/${id}`), data)
+  return set(ref(db, `applicants/${id}`), data)
     .then(() => {
       console.log('Saved it!')
       return {
