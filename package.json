@@ -13,11 +13,12 @@
   "scripts": {
     "develop": "gatsby develop && netlify-lambda serve src/lambda",
     "start": "netlify dev",
-    "build": "gatsby build && netlify-lambda build src/lambda",
+    "build": "gatsby build",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
+  "postinstall": "netlify-lambda install",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
@@ -26,7 +27,6 @@
     "ajv": "^8.6.3",
     "ajv-errors": "^3.0.0",
     "ajv-keywords": "^3.5.2",
-    "axios": "^0.23.0",
     "babel-eslint": "^10.1.0",
     "codemirror": "^5.63.3",
     "dotenv": "^8.6.0",

@@ -2,8 +2,6 @@ const { initializeApp } = require('firebase/app');
 
 const { getDatabase, ref, set } = require('firebase/database');
 
-const axios = require('axios');
-
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
