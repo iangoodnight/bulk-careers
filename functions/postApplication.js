@@ -48,7 +48,7 @@ exports.handler = async (event) => {
   console.log(app);
 
   try {
-    writeApplicationData(data);
+    await writeApplicationData(data);
     return {
       statusCode: 200,
       body: JSON.stringify({test: 'foo'}),
