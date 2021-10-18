@@ -26,7 +26,13 @@ function writeApplicationData(data) {
 
   const id = `${Date.now()}-${firstName}-${lastName}`;
 
-  set(ref(db, `applicants/${id}`), data);
+  set(ref(db, `applicants/${id}`), data)
+    .then(() => {
+      console.log('Saved it!')
+    })
+    .catch((error) => {
+      console.log('Problems saving: ', error.message);
+    });
 }
 
 const headers = {
