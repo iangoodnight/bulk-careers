@@ -47,18 +47,27 @@ exports.handler = async (event) => {
   console.log(firebaseConfig);
   console.log(app);
 
-  try {
-    await writeApplicationData(data);
-    return {
-      statusCode: 200,
-      body: JSON.stringify({test: 'foo'}),
-      headers,
-    };
-  } catch (error) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({msg: error.toString()}),
-      headers,
-    };
-  }
+  const db = getDatabase(app);
+
+  const { firstName, lastName } = data;
+
+  const id = `${Date.now()}-${firstName}-${lastName}`;
+
+  set(ref(db, `applicants/${id}`), data)
+    .then(() => {
+      console.log('Saved it!')
+      return {
+        statusCode: 200,
+        body: JSON.stringify({test: 'foo'}),
+        headers,
+      };
+    })
+    .catch((error) => {
+      console.log('Problems saving: ', error.message);
+      return {
+        statusCode: 400,
+        body: JSON.stringify({msg: error.toString()}),
+        headers,
+      };
+    });
 };
