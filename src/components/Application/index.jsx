@@ -1,7 +1,8 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { Formik, Field, Form } from 'formik';
 import Fieldset from '../Fieldset';
 import Label from '../Label';
+import Modal from '../Modal';
 import ErrorSchema from '../../lib/errorSchema.js';
 import {
   app,
@@ -25,8 +26,11 @@ const FormGroup = ({ children, isRadio = false, isTextArea = false }) => {
   );
 };
 
-const Application = ({ openJobs, position }) => {
-  console.log('position: ', position);
+const Application = ({ openJobs }) => {
+  const [show, setShow] = useState(false);
+
+  const [message, setMessage] = useState('Thank you for your application!');
+
   const endpoints = {
     post: '/.netlify/functions/postApplication',
   };
@@ -43,8 +47,13 @@ const Application = ({ openJobs, position }) => {
 
   return (
     <main className={app}>
+      <Modal
+        handleClose={() => setShow(false)}
+        show={show}
+      >
+        {message}
+      </Modal>
       <h1>Application for Employment</h1>
-
       <Formik
         initialValues={{
           firstName: '',
@@ -137,9 +146,7 @@ const Application = ({ openJobs, position }) => {
           reference3: '',
           reference3Phone: '',
         }}
-        onSubmit={async (values) => {
-          await new Promise((r) => setTimeout(r, 500));
-          alert(JSON.stringify(values, null, 2));
+        onSubmit={async (values, { resetForm, setSubmitting }) => {
           const response = await fetch(endpoints.post, {
             method: 'POST',
             body: JSON.stringify(values),
@@ -148,11 +155,19 @@ const Application = ({ openJobs, position }) => {
               Accept: 'application/json',
             },
           });
-          console.log(response);
-          console.log(response.body);
+
+          const { status } = response;
           const data = await response.json();
-          console.log(data);
-          console.log('submitted');
+
+          if (status === 200) {
+            setMessage('Thank you for your application!');
+            setShow(true);
+            setSubmitting(false);
+            resetForm();
+          } else {
+            setMessage('Something went wrong: ' + data.msg);
+            setShow(true);
+          }
         }}
         validationSchema={ErrorSchema}
       >
@@ -498,7 +513,7 @@ const Application = ({ openJobs, position }) => {
                 </Label>
                 <Field as="select" id="position" name="position">
                   {openJobs.map(([id, job]) => (
-                    <option key={id} value={job}>
+                    <option key={id} value={job} >
                       {job}
                     </option>
                   ))}

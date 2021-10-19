@@ -6,25 +6,7 @@ import Layout from '../components/Layout';
 const ApplicationPage = ({ data, location }) => {
   const { allMarkdownRemark: { edges = [] } = {} } = data;
 
-  const { search } = location;
-
-  const openJobs = [
-    ['default', 'Any open position'],
-    ...edges
-      .map((edge) => [edge.node.id, edge.node.frontmatter.title])
-      .sort(([, titleA], [, titleB]) => {
-        if (titleA > titleB) return 1;
-        if (titleB > titleA) return -1;
-        return 0;
-      }),
-  ];
-
-  const jobs = openJobs.map(([, job]) => {
-    return job
-      .split(' ')
-      .map((string) => string.toLowerCase())
-      .join('-');
-  });
+  const { search = '' } = location;
 
   const positionRe = /\?position=(?<position>[-a-z]+)/;
 
@@ -32,12 +14,42 @@ const ApplicationPage = ({ data, location }) => {
 
   const searched = match?.groups?.position;
 
+  const toSafeKebab = (str) => {
+    return str
+      .split('')
+      .filter((char) => char.match(/[ _a-z0-9]/i))
+      .join('')
+      .split(' ')
+      .map((word) => word.toLowerCase())
+      .filter((word) => word !== '')
+      .join('-');
+  }
+
+  const openJobs = [
+    ['default', 'Any open position'],
+    ...edges
+      .map((edge) => [edge.node.id, edge.node.frontmatter.title])
+  ].sort(([, titleA], [, titleB]) => {
+    if (titleA > titleB) return 1;
+    if (titleB > titleA) return -1;
+    return 0;
+  });
+
+  if (searched) {
+    const job = openJobs.filter(([,title]) => {
+      return searched === toSafeKebab(title);
+    });
+    if (job.length) {
+      return (
+        <Layout>
+          <Application openJobs={job} />
+        </Layout>
+      );
+    }
+  }
   return (
     <Layout>
-      <Application
-        openJobs={openJobs}
-        position={jobs.includes(searched) && searched}
-      />
+      <Application openJobs={openJobs} />
     </Layout>
   );
 };

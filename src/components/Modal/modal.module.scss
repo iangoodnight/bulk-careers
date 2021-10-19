@@ -1,0 +1,57 @@
+.modal {
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  a {
+    color: #fff;
+    display: block;
+    letter-spacing: .2em;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 auto;
+
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  div {
+    text-align: right;
+    button {
+      background: none;
+      border: none;
+      color: #aaa;
+      display: inline;
+      font-size: 2em;
+      font-weight: bold;
+      margin: 1em 2em 0 0;
+      padding: 0;
+
+      &:hover,
+      &:focus {
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+  section {
+    background-color: rgba(0,0,0,0.4);
+    min-height: 20vh;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  &.hide {
+    display: none;
+  }
+}
