@@ -1,7 +1,5 @@
 const { initializeApp } = require('firebase/app');
 
-const { getAnalytics } = require('firebase/analytics');
-
 const { getDatabase, ref, set } = require('firebase/database');
 
 require('dotenv').config({
@@ -20,8 +18,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
-getAnalytics(app);
 
 exports.handler = async (event) => {
   const data = JSON.parse(event.body);
