@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Formik, Field, Form } from 'formik';
-// import fetch from 'node-fetch';
+import Fieldset from '../Fieldset';
+import Label from '../Label';
 import ErrorSchema from '../../lib/errorSchema.js';
 import {
   app,
@@ -24,84 +25,20 @@ const FormGroup = ({ children, isRadio = false, isTextArea = false }) => {
   );
 };
 
-const Fieldset = ({ children, legend, className = '' }) => {
-  return (
-    <fieldset className={className}>
-      {legend && <legend>{legend}</legend>}
-      {children}
-    </fieldset>
-  );
-};
-
-const Label = ({ children, errors = {}, htmlFor = '', key, touched = {} }) => {
-  const identifier = key || htmlFor;
-  return (
-    <label htmlFor={htmlFor}>
-      {children}
-      {touched[identifier] && errors[identifier] && (
-        <span>{errors[identifier]}</span>
-      )}
-    </label>
-  );
-};
-
-const Application = ({ openJobs }) => {
+const Application = ({ openJobs, position }) => {
+  console.log('position: ', position);
   const endpoints = {
     post: '/.netlify/functions/postApplication',
   };
 
+  // prettier-ignore
   const stateAbbrs = [
     '--',
-    'AL',
-    'AK',
-    'AZ',
-    'AR',
-    'CA',
-    'CO',
-    'CT',
-    'DE',
-    'FL',
-    'GA',
-    'HI',
-    'ID',
-    'IL',
-    'IN',
-    'IA',
-    'KS',
-    'KY',
-    'LA',
-    'ME',
-    'MD',
-    'MA',
-    'MI',
-    'MN',
-    'MS',
-    'MO',
-    'MT',
-    'NE',
-    'NV',
-    'NH',
-    'NJ',
-    'NM',
-    'NY',
-    'NC',
-    'ND',
-    'OH',
-    'OK',
-    'OR',
-    'PA',
-    'RI',
-    'SC',
-    'SD',
-    'TN',
-    'TX',
-    'UT',
-    'VT',
-    'VA',
-    'WA',
-    'WV',
-    'WI',
-    'WY',
+    'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
+    'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD',
+    'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ',
+    'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC',
+    'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY',
   ];
 
   return (

@@ -16,13 +16,7 @@ const firebaseConfig = {
   appId: process.env.FIREBASE_APP_ID,
 };
 
-
 const app = initializeApp(firebaseConfig);
-
-const headers = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'Content-Type',
-};
 
 exports.handler = async (event) => {
   const data = JSON.parse(event.body);
@@ -35,19 +29,17 @@ exports.handler = async (event) => {
 
   return set(ref(db, `applicants/${id}`), data)
     .then(() => {
-      console.log('Saved it!')
+      console.log('Saved it! ', id);
       return {
         statusCode: 200,
-        body: JSON.stringify({test: 'foo'}),
-        // headers,
+        body: JSON.stringify({ msg: 'Success' }),
       };
     })
     .catch((error) => {
       console.log('Problems saving: ', error.message);
       return {
         statusCode: 400,
-        body: JSON.stringify({msg: error.toString()}),
-        // headers,
+        body: JSON.stringify({ msg: error.toString() }),
       };
     });
 };

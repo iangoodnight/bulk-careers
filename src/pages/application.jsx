@@ -3,8 +3,10 @@ import { graphql } from 'gatsby';
 import Application from '../components/Application';
 import Layout from '../components/Layout';
 
-const ApplicationPage = ({ data }) => {
+const ApplicationPage = ({ data, location }) => {
   const { allMarkdownRemark: { edges = [] } = {} } = data;
+
+  const { search } = location;
 
   const openJobs = [
     ['default', 'Any open position'],
@@ -17,9 +19,25 @@ const ApplicationPage = ({ data }) => {
       }),
   ];
 
+  const jobs = openJobs.map(([, job]) => {
+    return job
+      .split(' ')
+      .map((string) => string.toLowerCase())
+      .join('-');
+  });
+
+  const positionRe = /\?position=(?<position>[-a-z]+)/;
+
+  const match = positionRe.exec(search);
+
+  const searched = match?.groups?.position;
+
   return (
     <Layout>
-      <Application openJobs={openJobs} />
+      <Application
+        openJobs={openJobs}
+        position={jobs.includes(searched) && searched}
+      />
     </Layout>
   );
 };
