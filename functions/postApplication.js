@@ -1,3 +1,5 @@
+const admin = require('firebase-admin');
+
 const { initializeApp } = require('firebase/app');
 
 const { getDatabase, ref, set } = require('firebase/database');
