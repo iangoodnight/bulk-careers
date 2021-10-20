@@ -28,6 +28,8 @@ admin.initializeApp({
 exports.handler = async (event) => {
   const data = JSON.parse(event.body);
 
+  data.submittedAt = Date.now();
+
   const db = getDatabase();
 
   const ref = db.ref('applicants');
