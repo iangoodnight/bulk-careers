@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import { hide, modal } from './modal.module.scss';
 
 const Modal = ({ handleClose, show, children }) => {
-  const modalClass = show ? modal: `${modal} ${hide}`;
+  const modalClass = show ? modal : `${modal} ${hide}`;
 
   return (
     <div className={modalClass}>
@@ -14,7 +14,7 @@ const Modal = ({ handleClose, show, children }) => {
           </button>
         </div>
         <p>{children}</p>
-        <Link to="/">Return home</Link> 
+        <Link to="/">Return home</Link>
       </section>
     </div>
   );

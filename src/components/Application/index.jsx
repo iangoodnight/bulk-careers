@@ -47,10 +47,7 @@ const Application = ({ openJobs }) => {
 
   return (
     <main className={app}>
-      <Modal
-        handleClose={() => setShow(false)}
-        show={show}
-      >
+      <Modal handleClose={() => setShow(false)} show={show}>
         {message}
       </Modal>
       <h1>Application for Employment</h1>
@@ -513,7 +510,7 @@ const Application = ({ openJobs }) => {
                 </Label>
                 <Field as="select" id="position" name="position">
                   {openJobs.map(([id, job]) => (
-                    <option key={id} value={job} >
+                    <option key={id} value={job}>
                       {job}
                     </option>
                   ))}

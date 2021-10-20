@@ -23,12 +23,11 @@ const ApplicationPage = ({ data, location }) => {
       .map((word) => word.toLowerCase())
       .filter((word) => word !== '')
       .join('-');
-  }
+  };
 
   const openJobs = [
     ['default', 'Any open position'],
-    ...edges
-      .map((edge) => [edge.node.id, edge.node.frontmatter.title])
+    ...edges.map((edge) => [edge.node.id, edge.node.frontmatter.title]),
   ].sort(([, titleA], [, titleB]) => {
     if (titleA > titleB) return 1;
     if (titleB > titleA) return -1;
@@ -36,7 +35,7 @@ const ApplicationPage = ({ data, location }) => {
   });
 
   if (searched) {
-    const job = openJobs.filter(([,title]) => {
+    const job = openJobs.filter(([, title]) => {
       return searched === toSafeKebab(title);
     });
     if (job.length) {

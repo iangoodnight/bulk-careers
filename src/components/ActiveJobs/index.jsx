@@ -29,13 +29,10 @@ const JobList = ({ data }) => {
       <div className={activeJob}>
         <h3>Any open entry-level position</h3>
         <p>
-          Not sure where to start?  Fill out an application for any open
+          Not sure where to start? Fill out an application for any open
           entry-level position and find out where you fit in on our team today!
         </p>
-        <Link
-          className={apply}
-          to="/application"
-        >
+        <Link className={apply} to="/application">
           Apply now
         </Link>
       </div>
