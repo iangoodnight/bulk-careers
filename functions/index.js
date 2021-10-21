@@ -23,11 +23,11 @@ const message = {
 };
 
 exports.alertNewApplication = functions.database
-  .ref('/applicants')
-  .onWrite(async (change) => {
-    functions.logger.log(change.after);
-    mg.messages
+  .ref('/applicants/{applicantId}')
+  .onCreate((snapshot, context) => {
+    const data = snapshot.val();
+    functions.logger.log(`${JSON.stringify(data)}, ${JSON.stringify(context)}`);
+    return mg.messages
       .create(functions.config().mailgun.base, message)
       .catch((error) => functions.logger.log(error));
-    return null;
   });
