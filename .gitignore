@@ -69,7 +69,7 @@ yarn-error.log
 .yarn-integrity
 
 # Local development lambda
-/lambda
+# /lambda
 
 # Vim junk
 *.swp
