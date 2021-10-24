@@ -47,6 +47,10 @@
 
   p,
   ul {
-    padding: 1em 4em;
+    padding: 1em 2em;
+
+    @media all and (min-width: 900px) {
+      padding: 1em 4em;
+    }
   }
 }

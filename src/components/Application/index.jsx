@@ -144,6 +144,7 @@ const Application = ({ openJobs }) => {
           reference3Phone: '',
         }}
         onSubmit={async (values, { resetForm, setSubmitting }) => {
+          setSubmitting(true);
           const response = await fetch(endpoints.post, {
             method: 'POST',
             body: JSON.stringify(values),
@@ -168,7 +169,7 @@ const Application = ({ openJobs }) => {
         }}
         validationSchema={ErrorSchema}
       >
-        {({ errors, touched, setFieldValue, values }) => (
+        {({ errors, isSubmitting, touched, setFieldValue, values }) => (
           <Form>
             <h2>Personal Information</h2>
             <Fieldset legend="Name">
@@ -1312,7 +1313,12 @@ const Application = ({ openJobs }) => {
               records.
             </p>
 
-            <button type="submit">Submit</button>
+            <button
+              disabled={isSubmitting}
+              type="submit"
+            >
+              Submit
+            </button>
           </Form>
         )}
       </Formik>

@@ -39,6 +39,9 @@ module.exports = {
         background_color: '#4c416a',
         theme_color: '#000',
         icon: 'src/images/icon-square.png',
+        icon_options: {
+          purpose: 'any maskable',
+        },
         include_favicon: false,
       },
     },
