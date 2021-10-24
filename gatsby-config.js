@@ -29,5 +29,18 @@ module.exports = {
       __key: 'jobs',
     },
     'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Bulk Apothecary / Natural Essentials, Inc. - Careers',
+        short_name: 'Bulk Apothecary Careers',
+        start_url: '/',
+        display: 'standalone',
+        background_color: '#4c416a',
+        theme_color: '#000',
+        icon: 'src/images/icon.png',
+      },
+    },
+    'gatsby-plugin-offline',
   ],
 };
