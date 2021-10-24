@@ -50,6 +50,7 @@ const ApplicationPage = ({ data, location }) => {
   }
   return (
     <Layout>
+      <Metadata title="Apply Now" />
       <Application openJobs={openJobs} />
     </Layout>
   );
