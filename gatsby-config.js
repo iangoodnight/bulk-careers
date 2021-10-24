@@ -1,7 +1,9 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://www.yourdomain.tld',
-    title: 'Bulk Careers',
+    author: 'Ian Goodnight',
+    description: 'Get your career started with Bulk Apothecary.',
+    siteUrl: 'https://bulk-careers.netlify.app',
+    title: 'Bulk Apothecary / Natural Essentials, Inc. -  Careers',
   },
   plugins: [
     'gatsby-plugin-netlify-cms',

@@ -2,8 +2,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { graphql, Link } from 'gatsby';
-import Layout from '../components/Layout';
 import Content from '../components/Content';
+import Layout from '../components/Layout';
+import Metadata from '../components/Metadata';
 import { posting } from './job.module.scss';
 
 const JobPost = ({ data, location }) => {
@@ -17,9 +18,17 @@ const JobPost = ({ data, location }) => {
 
   const position = match?.groups?.position;
 
-  console.log(position);
+  const article = /^[aeiou]/i.test(title) ? 'an' : 'a';
+
+  const description =
+    'Start your career with Natural Essentials, Inc. as ' +
+    article +
+    title +
+    '.  Apply today!';
+
   return (
     <Layout>
+      <Metadata title={title} description={description} />
       <div className={posting}>
         <h1>{title}</h1>
         <Content content={job.html} />
@@ -47,6 +56,11 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
+        title
+      }
+    }
+    site {
+      siteMetadata {
         title
       }
     }

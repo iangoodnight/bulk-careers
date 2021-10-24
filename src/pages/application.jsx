@@ -2,6 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import Application from '../components/Application';
 import Layout from '../components/Layout';
+import Metadata from '../components/Metadata';
 
 const ApplicationPage = ({ data, location }) => {
   const { allMarkdownRemark: { edges = [] } = {} } = data;
@@ -41,6 +42,7 @@ const ApplicationPage = ({ data, location }) => {
     if (job.length) {
       return (
         <Layout>
+          <Metadata title="Apply Now" />
           <Application openJobs={job} />
         </Layout>
       );
