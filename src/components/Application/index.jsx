@@ -371,7 +371,7 @@ const Application = ({ openJobs }) => {
 
               <FormGroup isTextArea={true}>
                 <Label
-                  htmlFor="felonExplanation"
+                  htmlFor="felonyExplanation"
                   errors={errors}
                   touched={touched}
                 >

@@ -6,6 +6,7 @@ module.exports = {
     title: 'Bulk Apothecary / Natural Essentials, Inc. -  Careers',
   },
   plugins: [
+    'gatsby-plugin-preact',
     'gatsby-plugin-netlify-cms',
     'gatsby-plugin-sass',
     'gatsby-plugin-image',
