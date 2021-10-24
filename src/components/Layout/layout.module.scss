@@ -9,9 +9,13 @@ a {
 body {
   color: #464646;
   font-family: "Segoe UI", Roboto, Verdana, "Helvetica Neue", sans-serif;
-  font-size: 100%;
+  font-size: 80%;
   line-height: 1.4283;
   margin: 0;
+
+  @media all and (min-width: 900px) {
+    font-size: 100%;
+  }
 }
 
 h1,
@@ -28,8 +32,12 @@ h2 {
   color: #fff;
   font-size: 1.4em;
   margin-bottom: 1em;
-  padding: 2em 6em 1em;
+  padding: 2em 2em 1em;
   text-align: right;
+
+  @media all and (min-width: 900px) {
+    padding: 2em 6em 1em;
+  }
 }
 
 h3 {
@@ -38,8 +46,16 @@ h3 {
   padding: .5em;
 }
 
+h4 {
+  padding: 0 1em;
+}
+
 p {
-  padding: 0 2em 1em;
+  padding: 0 1em 1em;
+
+  @media all and (min-width: 900px) {
+    padding: 0 2em 1em;
+  }
 }
 
 section {

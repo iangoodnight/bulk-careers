@@ -29,14 +29,22 @@
 
   div {
     margin: 0;
-    padding: 0 8em;
+    padding: 0 1em;
+
+    @media all and (min-width: 900px) {
+      padding: 0 8em;
+    }
   }
 
   h2 {
     background-color: #000;
     color: #fff;
-    padding: 2em 6em 1em;
+    padding: 2em 2em 1em;
     text-align: right;
+
+    @media all and (min-width: 900px) {
+      padding: 2em 6em 1em;
+    }
   }
 
   .icon {

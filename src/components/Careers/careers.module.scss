@@ -1,6 +1,11 @@
 .careers {
   div {
     margin: 0;
-    padding: 0 8em;
+    padding: 0 1em;
+
+    @media all and (min-width: 900px) {
+      padding: 0 8em;
+
+    }
   }
 }
