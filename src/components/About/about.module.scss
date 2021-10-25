@@ -25,13 +25,19 @@
       text-transform: uppercase;
       transition:
         background-color 1s linear,
-        color 1s linear,
         border-color 1s linear;
+
+      a {
+        transition: color 1s linear,
+      }
 
       &:hover {
         background-color: rgba(0, 0, 0, .1);
-        color: #000;
         border-color: #000;
+
+        a {
+          color: #000;
+        }
       }
     }
   }

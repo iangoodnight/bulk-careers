@@ -1,6 +1,19 @@
 {
-  "name": "functions",
+  "name": "send-alert",
   "description": "Cloud Functions for Firebase",
+  "version": "1.0.0",
+  "keywords": [
+    "firebase",
+    "firebase-functions",
+    "email",
+    "mailgun"
+  ],
+  "bugs": {
+    "url": "https://github.com/iangoodnight/bulk-careers/issues",
+    "email": "goodnight.ian@gmail.com"
+  },
+  "license": "MIT",
+  "author": "Ian Goodnight <goodnight.ian@gmail.com",
   "scripts": {
     "lint": "eslint .",
     "serve": "firebase emulators:start --only functions",
@@ -26,6 +39,5 @@
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-promise": "^5.1.1",
     "firebase-functions-test": "^0.2.0"
-  },
-  "private": true
+  }
 }
