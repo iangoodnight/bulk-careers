@@ -152,10 +152,14 @@ as active or inactive.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e162512c-e213-4d6c-9ef4-828b560988a3/deploy-status)](https://app.netlify.com/sites/bulk-careers/deploys)
 
+"[wildflowers]" by [Aiden Regelado], PH is licensed by Creative Commons
+Attribution 3.0 United States
 
-[Netlify]: https://netlify.com
-[Netlify Dashboard]: https://app.netlify.com
-[Firebase]: https://firebase.google.com
-[Firebase console]: https://console.firebase.google.com
-[Github account]: https://github.com/settings/developers
-[Mailgun]: https://mailgun.com
+[netlify]: https://netlify.com
+[netlify dashboard]: https://app.netlify.com
+[firebase]: https://firebase.google.com
+[firebase console]: https://console.firebase.google.com
+[github account]: https://github.com/settings/developers
+[mailgun]: https://mailgun.com
+[wildflowers]: https://thenounproject.com/term/wildflowers/4175205/
+[aiden regelado]: https://thenounproject.com/aidenopoly
