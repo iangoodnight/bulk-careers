@@ -1,15 +1,26 @@
 {
   "name": "bulk-careers",
   "version": "1.0.0",
-  "private": true,
-  "description": "Bulk Careers",
-  "author": "Ian Goodnight",
-  "engines": {
-    "node": ">=14.18.0"
-  },
+  "description": "An application portal developed for Bulk Apothecary",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "pug",
+    "firebase",
+    "netlify",
+    "mailgun",
+    "firebase-functions",
+    "careers",
+    "application",
+    "netlify-cms"
   ],
+  "homepage": "",
+  "bugs": {
+    "url": "https://github.com/iangoodnight/bulk-careers/issues",
+    "email": "goodnight.ian@gmail.com"
+  },
+  "license": "MIT",
+  "author": "Ian Goodnight <goodnight.ian@gmail.com",
+  "repository": "https://github.com/iangoodnight/bulk-careers",
   "scripts": {
     "develop": "gatsby develop",
     "start": "netlify dev",
@@ -76,5 +87,8 @@
   },
   "devDependencies": {
     "prettier": "^2.4.1"
+  },
+  "engines": {
+    "node": ">=14.18.0"
   }
 }

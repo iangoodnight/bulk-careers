@@ -33,8 +33,8 @@ const mg = mailgun.client({
 function sendMail(html) {
   return new Promise((resolve, reject) => {
     const message = {
-      from: 'Bulk Careers Application Portal <no-reply@bulk-careers.app>',
-      to: 'goodnight.ian@gmail.com',
+      from: 'Bulk Careers Application Portal <no-reply@careers.app>',
+      to: functions.config().email.target,
       subject: '<NEW APPLICATION>',
       html,
     };
