@@ -14,14 +14,12 @@ body
   p(class='address') #{zip}
   p(class='address') #{phone}
   p(class='address') #{email}
-  p(class='address') SS: #{social}
-  p(class='address') DOB: #{birthdate}
 
   hr
 
   h2 Personal Information
 
-  p(class='bold') Are you entitled to work in the United States?
+  p(class='bold') Are you authorized to work in the United States?
   if entitledToWork
     p Yes
       span(class='true') &nbsp;&#10003;
@@ -76,14 +74,6 @@ body
     else
       p No
         span(class='false') &nbsp;&times;
-
-  p(class='bold') Are you currently employed?
-  if currentlyEmployed
-    p Yes
-      span(class='true') &nbsp;&#10003;
-  else
-    p No
-      span(class='false') &nbsp;&times;
 
   p(class='bold') Have you ever applied with this company before?
   if everApplied
