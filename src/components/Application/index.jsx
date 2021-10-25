@@ -62,8 +62,6 @@ const Application = ({ openJobs }) => {
           city: '',
           state: '',
           zip: '',
-          birthdate: '',
-          social: '',
           entitledToWork: '',
           youngerThan18: '',
           convictedFelon: '',
@@ -77,7 +75,6 @@ const Application = ({ openJobs }) => {
           referral: '',
           expectedRate: '',
           dateAvailable: '',
-          currentlyEmployed: '',
           everApplied: '',
           naturalEssentialsPreviously: '',
           employerWork1: '',
@@ -254,26 +251,10 @@ const Application = ({ openJobs }) => {
               </FormGroup>
             </Fieldset>
 
-            <Fieldset legend="Birthdate and Social">
-              <FormGroup>
-                <Field id="birthdate" name="birthdate" type="date" />
-                <Label htmlFor="birthdate" errors={errors} touched={touched}>
-                  Birthdate
-                </Label>
-              </FormGroup>
-
-              <FormGroup>
-                <Field id="social" name="social" />
-                <Label htmlFor="social" errors={errors} touched={touched}>
-                  SSN (last 4 digits)
-                </Label>
-              </FormGroup>
-            </Fieldset>
-
             <Fieldset legend="Background">
               <FormGroup isRadio={true}>
                 <h3 id="entitled-radio">
-                  Are you entitled to work in the U.S.?
+                  Are you authorized to work in the U.S.?
                 </h3>
                 <div role="group" aria-labelledby="entitled-radio">
                   <label htmlFor="entitled-true">
@@ -541,37 +522,6 @@ const Application = ({ openJobs }) => {
                   Date Available?
                 </Label>
                 <Field id="dateAvailable" name="dateAvailable" type="date" />
-              </FormGroup>
-
-              <FormGroup isRadio={true}>
-                <h3 id="currently">Are you currently employed?</h3>
-                <div role="group" aria-labelledby="currently">
-                  <label htmlFor="currently-true">
-                    <Field
-                      checked={values.currentlyEmployed === true}
-                      id="currently-true"
-                      name="currentlyEmployed"
-                      onChange={() => setFieldValue('currentlyEmployed', true)}
-                      type="radio"
-                      value={true}
-                    />
-                    Yes
-                  </label>
-                  <label htmlFor="currently-false">
-                    <Field
-                      checked={values.currentlyEmployed === false}
-                      id="currently-false"
-                      name="currentlyEmployed"
-                      onChange={() => setFieldValue('currentlyEmployed', false)}
-                      type="radio"
-                      value={false}
-                    />
-                    No
-                  </label>
-                  {touched.currentlyEmployed && errors.currentlyEmployed && (
-                    <span>{errors.currentlyEmployed}</span>
-                  )}
-                </div>
               </FormGroup>
 
               <FormGroup isRadio={true}>
