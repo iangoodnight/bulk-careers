@@ -5,7 +5,7 @@ Apothecary®. Deployed to Netlify, `bulk-careers` utilizes Netlify functions to
 submit applications to a Firebase Real-Time Database to allow for database
 persistence. A Firebase function triggers an email alert, sent through
 Mailgun.js, to communicate new applications to our HR department. Applications
-are built and managed utilizing the Netlify CMS.
+are built and managed utilizing the Netlify CMS.  [Check out the demo.]
 
 ## Installation
 
@@ -176,3 +176,4 @@ Attribution 3.0 United States
 [mailgun]: https://mailgun.com
 [wildflowers]: https://thenounproject.com/term/wildflowers/4175205/
 [aiden regelado]: https://thenounproject.com/aidenopoly
+[Check out the demo.]: https://bulk-careers.netlify.app
